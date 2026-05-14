@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Ilon Virta Church — Mikkeli, Finland. Sunday service at 11am, Otavankatu 18. Everyone welcome."/>
+<title>In English — Ilon Virta Mikkeli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#141414;--dark-2:#1C1C1C;--dark-3:#242424;
+  --white:#FFFFFF;--light:#FFFFFF;--light-2:#F6F6F6;
+  --ink:#1A1A1A;--muted-ink:#666666;
+  --muted:rgba(255,255,255,0.38);
+  --gold:#D4A843;--gold-dark:#B8892A;--gold-dim:rgba(212,168,67,0.12);
+  --border:rgba(255,255,255,0.07);--border-2:rgba(255,255,255,0.12);
+  --border-light:rgba(0,0,0,0.09);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;font-weight:300;line-height:1.7}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.2rem,4vw,4rem);height:60px;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-light);gap:1rem}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;flex-shrink:0}
+.nav-logo em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-size:0.65rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted-ink);text-decoration:none;white-space:nowrap;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-cta{font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);background:var(--dark);padding:0.5rem 1.3rem;text-decoration:none;flex-shrink:0;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold)}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;flex-shrink:0}
+.nav-ham span{width:22px;height:1.5px;background:var(--ink);display:block;transition:all .3s}
+.nav-ham.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-ham.active span:nth-child(2){opacity:0}
+.nav-ham.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(255,255,255,.99);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-light);padding:0.5rem clamp(1.2rem,4vw,4rem) 1.5rem;z-index:998;flex-direction:column}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted-ink);text-decoration:none;padding:0.9rem 0;border-bottom:1px solid var(--border-light);transition:color .2s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu .mob-cta{margin-top:1rem;background:var(--gold);color:var(--white);text-align:center;padding:0.8rem;border-bottom:none;letter-spacing:0.2em}
+.mobile-menu .mob-cta:hover{background:var(--dark)}
+
+/* HERO */
+.page-hero{margin-top:60px;position:relative;overflow:hidden}
+.ph-img{position:absolute;inset:0;background:url('https://images.pexels.com/photos/1770775/pexels-photo-1770775.jpeg?auto=compress&cs=tinysrgb&w=1400') center 35%/cover no-repeat;animation:subtle-zoom 20s ease-in-out infinite alternate}
+.ph-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,20,20,0.45) 0%,rgba(20,20,20,0.6) 50%,rgba(20,20,20,0.92) 100%)}
+.ph-inner{position:relative;z-index:2;min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);max-width:820px}
+.ph-kicker{font-size:0.62rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;display:flex;align-items:center;gap:10px}
+.ph-kicker::before{content:'';width:24px;height:1px;background:var(--gold);opacity:0.6}
+.ph-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:300;line-height:0.97;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.2rem}
+.ph-h1 em{font-style:italic;color:var(--gold);display:block;margin-top:0.05em}
+.ph-sub{font-size:0.92rem;color:rgba(255,255,255,0.45);max-width:480px;line-height:1.85}
+
+/* INFO STRIP */
+.info-strip{background:var(--white);display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--gold)}
+.is-cell{display:flex;align-items:center;gap:1rem;padding:1.4rem clamp(1rem,3vw,2.5rem);border-right:1px solid var(--border-light)}
+.is-cell:last-child{border-right:none}
+.is-ico{width:32px;height:32px;border-radius:50%;background:var(--gold-dim);border:1px solid rgba(212,168,67,0.22);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.is-ico svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.is-lbl{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:0.15rem}
+.is-val{font-size:0.88rem;font-weight:400;color:var(--ink)}
+
+/* COMMONS */
+section{padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem)}
+.kicker{font-size:0.62rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.7rem}
+.kicker::after{content:'';height:1px;width:28px;background:var(--gold);opacity:0.5;display:inline-block}
+.kicker.center{justify-content:center}
+.kicker.center::before{content:'';height:1px;width:28px;background:var(--gold);opacity:0.5;display:inline-block}
+.kicker.center::after{display:none}
+.sec-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.8vw,3.4rem);font-weight:300;line-height:1.08;letter-spacing:-0.01em;color:var(--ink);margin-bottom:1.1rem}
+.sec-h2 em{font-style:italic;color:var(--gold)}
+.sec-h2.white{color:var(--white)}
+.sec-body{font-size:0.92rem;font-weight:300;color:var(--muted-ink);line-height:1.85;max-width:520px}
+.rule{width:36px;height:1px;background:var(--gold);margin:1.4rem 0;opacity:0.5}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,6rem);align-items:start}
+
+.btn-dark{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:var(--dark);color:var(--white);padding:0.85rem 2rem;text-decoration:none;transition:background .2s}
+.btn-dark:hover{background:var(--gold)}
+.btn-gold{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:var(--gold);color:var(--white);padding:0.85rem 2rem;text-decoration:none;transition:background .2s}
+.btn-gold:hover{background:var(--ink)}
+.btn-outline-dark{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);border:1px solid var(--border-light);padding:0.85rem 2rem;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-outline-dark:hover{border-color:var(--gold);color:var(--gold)}
+.btn-outline-white{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);border:1px solid rgba(255,255,255,0.35);padding:0.85rem 2rem;text-decoration:none;transition:border-color .2s,background .2s}
+.btn-outline-white:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.65)}
+
+/* WELCOME */
+#welcome{background:var(--white)}
+.faq-item{border-bottom:1px solid var(--border-light)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;font-size:0.88rem;font-weight:300;color:var(--ink);cursor:pointer;user-select:none;gap:1rem}
+.faq-toggle{width:20px;height:20px;border:1px solid var(--border-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;color:var(--muted-ink);transition:all .3s}
+.faq-item.open .faq-toggle{background:var(--gold);border-color:var(--gold);color:var(--white);transform:rotate(45deg)}
+.faq-a{font-size:0.84rem;color:var(--muted-ink);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1),margin .3s}
+.faq-item.open .faq-a{max-height:200px;margin-bottom:1rem}
+
+.welcome-panel{background:var(--dark);padding:2.8rem 2.4rem;position:relative;overflow:hidden}
+.welcome-panel::before{content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,0.12) 0%,transparent 70%)}
+.wp-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;font-style:italic;color:var(--white);margin-bottom:0.7rem;line-height:1.2}
+.wp-body{font-size:0.85rem;color:var(--muted);line-height:1.8;margin-bottom:1.6rem}
+.wp-rule{height:1px;background:var(--border);margin:1.2rem 0}
+.wp-row{display:flex;justify-content:space-between;align-items:baseline;padding:0.45rem 0}
+.wp-lbl{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.wp-val{font-size:0.86rem;color:var(--white);font-weight:300}
+.wp-val a{color:var(--white);text-decoration:none}
+
+/* SLOGAN BAND */
+.slogan-band{background:var(--dark-2);padding:60px clamp(1.5rem,5vw,5rem);text-align:center;position:relative;overflow:hidden}
+.slogan-band::before{content:'';position:absolute;inset:0;background:url('https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=900') center/cover no-repeat;opacity:0.05}
+.slogan-text{position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.4rem);font-weight:300;font-style:italic;color:var(--white);line-height:1.5;max-width:680px;margin:0 auto}
+.slogan-text em{color:var(--gold);font-style:normal}
+.slogan-ref{position:relative;z-index:1;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:1.2rem}
+
+/* WHO WE ARE */
+#whoweare{background:var(--light-2)}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border-light);margin-top:2rem}
+.val{padding:1.6rem;border-right:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
+.val:nth-child(2n){border-right:none}
+.val:nth-last-child(-n+2){border-bottom:none}
+.val-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;line-height:1;margin-bottom:0.3rem;color:rgba(184,137,42,0.2)}
+.val-title{font-size:0.68rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.4rem}
+.val-body{font-size:0.82rem;color:var(--muted-ink);line-height:1.7}
+
+/* PHOTO GRID */
+.photo-row{display:grid;grid-template-columns:repeat(4,1fr);height:220px;gap:2px}
+.photo-row-item{overflow:hidden;position:relative}
+.photo-row-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 6s ease}
+.photo-row-item:hover img{transform:scale(1.06)}
+.photo-row-item::after{content:'';position:absolute;inset:0;background:rgba(20,20,20,0.15);transition:opacity .3s}
+.photo-row-item:hover::after{opacity:0}
+
+/* ACTIVITIES */
+#activities{background:var(--white)}
+.pages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem}
+.page-card{background:var(--white);border:1px solid var(--border-light);padding:2rem 1.8rem;display:block;position:relative;overflow:hidden;border-top:2px solid transparent;transition:border-color .25s,border-top-color .25s}
+.page-card:hover{border-top-color:var(--gold)}
+.pc-tag{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;font-weight:500}
+.pc-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--ink);margin-bottom:0.5rem;line-height:1.2}
+.pc-desc{font-size:0.82rem;color:var(--muted-ink);line-height:1.7}
+.pc-arrow{font-size:0.72rem;color:var(--gold);margin-top:1.2rem;letter-spacing:0.1em;font-weight:500}
+
+/* CONTACT DARK */
+#contact-en{background:var(--dark-3);padding:clamp(4rem,8vh,6rem) clamp(1.5rem,5vw,5rem)}
+#contact-en .kicker{color:var(--gold)}
+#contact-en .sec-h2{color:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2.5rem;background:var(--border-2)}
+.cg-cell{background:var(--dark-2);padding:1.8rem 2rem;display:flex;align-items:flex-start;gap:1.2rem}
+.cg-ico{width:34px;height:34px;border-radius:50%;background:var(--gold-dim);border:1px solid rgba(212,168,67,0.2);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.cg-ico svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.cg-lbl{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:0.25rem}
+.cg-val{font-size:0.9rem;color:var(--white);font-weight:300}
+.cg-val a{color:var(--white);text-decoration:none;transition:color .2s}
+.cg-val a:hover{color:var(--gold)}
+
+/* INVITE */
+#invite-en{background:var(--dark);padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem);text-align:center;position:relative;overflow:hidden}
+#invite-en::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(212,168,67,0.07) 0%,transparent 60%)}
+.invite-inner{position:relative;z-index:1;max-width:580px;margin:0 auto}
+
+/* FOOTER */
+footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-top:1px solid var(--border)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);margin-bottom:0.5rem}
+.f-logo em{color:var(--gold);font-style:normal}
+.f-tagline{font-size:0.8rem;color:rgba(255,255,255,0.28);font-weight:300;max-width:200px;line-height:1.7}
+.f-col-h{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;opacity:0.7}
+.f-col ul{list-style:none}
+.f-col ul li{margin-bottom:0.5rem}
+.f-col ul li a{font-size:0.82rem;font-weight:300;color:var(--muted);text-decoration:none;transition:color .2s}
+.f-col ul li a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.8rem;border-top:1px solid var(--border)}
+.f-copy{font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.2)}
+
+@keyframes subtle-zoom{from{transform:scale(1.03)}to{transform:scale(1.0)}}
+
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .nav-ham{display:flex}
+  .info-strip,.contact-grid,.two-col,.footer-top{grid-template-columns:1fr}
+  .is-cell{border-right:none;border-bottom:1px solid var(--border-light)}
+  .is-cell:last-child{border-bottom:none}
+  .pages-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .val{border-right:none}
+  .val:nth-last-child(-n+2){border-bottom:1px solid var(--border-light)}
+  .val:last-child{border-bottom:none}
+  .photo-row{grid-template-columns:repeat(2,1fr);height:280px}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.footer-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Ilon <em>Virta</em></a>
+  <ul class="nav-links">
+    <li><a href="/sunnuntai">Sunnuntai</a></li>
+    <li><a href="/lapset">Lapset</a></li>
+    <li><a href="/evankeliointi">Evankeliointi</a></li>
+    <li><a href="/raamattukoulu">Raamattukoulu</a></li>
+    <li><a href="/tapahtumat">Tapahtumat</a></li>
+    <li><a href="/yhteys">Yhteys</a></li>
+    <li><a href="/english" class="active">In English</a></li>
+  </ul>
+  <a href="/#welcome" class="nav-cta">I'm new →</a>
+  <button class="nav-ham" id="ham-btn" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mob-menu">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/sunnuntai" onclick="closeMenu()">Sunday Service</a>
+  <a href="/lapset" onclick="closeMenu()">Children</a>
+  <a href="/evankeliointi" onclick="closeMenu()">Evangelism</a>
+  <a href="/raamattukoulu" onclick="closeMenu()">Bible School</a>
+  <a href="/tapahtumat" onclick="closeMenu()">Events</a>
+  <a href="/yhteys" onclick="closeMenu()">Contact</a>
+  <a href="/english" onclick="closeMenu()">In English</a>
+  <a href="/#welcome" class="mob-cta" onclick="closeMenu()">I'm new →</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="ph-img"></div>
+  <div class="ph-overlay"></div>
+  <div class="ph-inner">
+    <div class="ph-kicker">Ilon Virta Church · Mikkeli, Finland</div>
+    <h1 class="ph-h1">A home for God's power<em>and family.</em></h1>
+    <p class="ph-sub">A Spirit-filled church in Mikkeli, Finland.</p>
+  </div>
+  <div class="info-strip">
+    <div class="is-cell">
+      <div class="is-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <div><div class="is-lbl">Every Sunday</div><div class="is-val">Service at 11:00 AM</div></div>
+    </div>
+    <div class="is-cell">
+      <div class="is-ico"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <div><div class="is-lbl">Address</div><div class="is-val">Otavankatu 18, Mikkeli</div></div>
+    </div>
+    <div class="is-cell">
+      <div class="is-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div><div class="is-lbl">Community</div><div class="is-val">Open to everyone</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- WELCOME -->
+<section id="welcome">
+  <div class="two-col">
+    <div>
+      <div class="kicker reveal">New visitor</div>
+      <h2 class="sec-h2 reveal">New here? <em>You're in the right place.</em></h2>
+      <div class="rule reveal"></div>
+      <p class="sec-body reveal">That's completely normal. You don't need to know anything beforehand — or be any particular kind of person. Everyone is welcome.</p>
+      <div style="margin-top:2rem" class="reveal d1">
+        <div class="faq-item">
+          <div class="faq-q">Do I need a church background? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Not at all. Many of us discovered faith as adults. Nobody is testing you at the door.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What should I wear? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Whatever feels comfortable. Jeans, a dress, trainers — there's no dress code.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I bring my children? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Absolutely — families are very welcome. Kids join the beginning of the service with their parents for worship, then around 11:20 they move to Children's Church with their own programme. You'll be reunited after the service. No registration, just bring them along.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How old do kids need to be for Children's Church? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Children's Church is open to all ages. Babies and toddlers are welcome in the main service too — no need to stress if they make noise. We love it.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do I have to commit to anything? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">No. You can come, sit, listen and leave. There's no pressure here.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What happens when I walk in? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Someone will welcome you. You won't be left standing alone. It helps to arrive a few minutes early.</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="welcome-panel">
+        <div class="wp-title">Come this Sunday.</div>
+        <div class="wp-body">No registration needed — just show up. The easiest way to get a feel for who we are.</div>
+        <div class="wp-rule"></div>
+        <div class="wp-row"><span class="wp-lbl">Sunday Service</span><span class="wp-val">11:00 AM</span></div>
+        <div class="wp-row"><span class="wp-lbl">Good arrival time</span><span class="wp-val">Around 10:45 AM</span></div>
+        <div class="wp-row"><span class="wp-lbl">Friday — Prayer</span><span class="wp-val">5:00 PM</span></div>
+        <div class="wp-row"><span class="wp-lbl">Friday — Evangelism</span><span class="wp-val">6:00 PM</span></div>
+        <div class="wp-row"><span class="wp-lbl">Address</span><span class="wp-val">Otavankatu 18, Mikkeli</span></div>
+        <div class="wp-row"><span class="wp-lbl">Phone</span><span class="wp-val"><a href="tel:+358449361604">+358 44 936 1604</a></span></div>
+        <div class="wp-row"><span class="wp-lbl">Email</span><span class="wp-val"><a href="mailto:info@ilonvirta.fi">info@ilonvirta.fi</a></span></div>
+        <div class="wp-rule"></div>
+        <a href="https://maps.google.com/?q=Otavankatu+18+Mikkeli" target="_blank" rel="noopener noreferrer" class="btn-gold" style="display:block;text-align:center">Show on map →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLOGAN BAND -->
+<div class="slogan-band">
+  <div class="slogan-text reveal">"Love the Lord your God with all your heart, all your soul and all your mind." <em>— Matthew 22:37</em></div>
+  <div class="slogan-ref reveal d1">Come and experience this love with us</div>
+</div>
+
+<!-- PHOTO ROW -->
+<div class="photo-row">
+  <div class="photo-row-item"><img src="https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Community" loading="lazy"/></div>
+  <div class="photo-row-item"><img src="https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nature Finland" loading="lazy"/></div>
+  <div class="photo-row-item"><img src="https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=600" alt="People together" loading="lazy"/></div>
+  <div class="photo-row-item"><img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Joy" loading="lazy"/></div>
+</div>
+
+<!-- WHO WE ARE -->
+<section id="whoweare">
+  <div class="two-col">
+    <div>
+      <div class="kicker reveal">Who we are</div>
+      <h2 class="sec-h2 reveal">A church where <em>the Holy Spirit moves freely.</em></h2>
+      <div class="rule reveal"></div>
+      <p class="sec-body reveal">Ilon Virta (Finnish for "River of Joy") is a Spirit-filled Christian church in Mikkeli, Finland. We believe the Bible completely, we worship with our whole hearts, and we welcome everyone — regardless of background, age, or nationality.</p>
+    </div>
+    <div class="values-grid reveal d2">
+      <div class="val">
+        <div class="val-n">01</div>
+        <div class="val-title">Living faith</div>
+        <div class="val-body">Faith isn't just words — it shows up in life and in transformation.</div>
+      </div>
+      <div class="val">
+        <div class="val-n">02</div>
+        <div class="val-title">The whole Word</div>
+        <div class="val-body">We believe the Bible 100% — without picking and choosing.</div>
+      </div>
+      <div class="val">
+        <div class="val-n">03</div>
+        <div class="val-title">Holy Spirit freedom</div>
+        <div class="val-body">God is still active today. We make room for what He is doing.</div>
+      </div>
+      <div class="val">
+        <div class="val-n">04</div>
+        <div class="val-title">Open to all</div>
+        <div class="val-body">We welcome everyone — regardless of background, age, or where you're at in life.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <div class="kicker reveal">What we do</div>
+  <h2 class="sec-h2 reveal">Life at <em>Ilon Virta.</em></h2>
+  <div class="pages-grid">
+    <div class="page-card reveal d1">
+      <div class="pc-tag">Weekly</div>
+      <div class="pc-title">Sunday Service</div>
+      <div class="pc-desc">Every Sunday at 11am. Worship, teaching, prayer and community. Children's programme runs at the same time.</div>
+    </div>
+    <div class="page-card reveal d2">
+      <div class="pc-tag">For families · Every Sunday</div>
+      <div class="pc-title">Children's Church</div>
+      <div class="pc-desc">Kids start the service together with their parents for worship, then move to their own space for Bible teaching, games and fun. Parents get to enjoy the service in peace. No sign-up needed — just bring them along.</div>
+    </div>
+    <div class="page-card reveal d3">
+      <div class="pc-tag">Fridays — prayer 5pm, streets 6pm</div>
+      <div class="pc-title">Street Evangelism</div>
+      <div class="pc-desc">We gather for prayer at 5pm, then head out to share the good news of Jesus at 6pm. No experience needed.</div>
+    </div>
+    <div class="page-card reveal d1">
+      <div class="pc-tag">Growth</div>
+      <div class="pc-title">Bible School</div>
+      <div class="pc-desc">Go deeper in God's word. Available in person in Mikkeli or online. Free to attend.</div>
+    </div>
+    <div class="page-card reveal d2">
+      <div class="pc-tag">Calendar</div>
+      <div class="pc-title">Events</div>
+      <div class="pc-desc">Special evenings, celebrations and gatherings throughout the year.</div>
+    </div>
+    <div class="page-card reveal d3">
+      <div class="pc-tag">Contact</div>
+      <div class="pc-title">Get in touch</div>
+      <div class="pc-desc">Ask a question or say hello — <a href="mailto:info@ilonvirta.fi" style="color:var(--gold-dark);text-decoration:none">info@ilonvirta.fi</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact-en">
+  <div class="kicker reveal">Find us</div>
+  <h2 class="sec-h2 white reveal">How to <em>reach us.</em></h2>
+  <div class="contact-grid">
+    <div class="cg-cell reveal d1">
+      <div class="cg-ico"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <div>
+        <div class="cg-lbl">Address</div>
+        <div class="cg-val"><a href="https://maps.google.com/?q=Otavankatu+18+Mikkeli" target="_blank" rel="noopener noreferrer">Otavankatu 18, 50130 Mikkeli, Finland</a></div>
+      </div>
+    </div>
+    <div class="cg-cell reveal d2">
+      <div class="cg-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+      <div>
+        <div class="cg-lbl">Phone / WhatsApp</div>
+        <div class="cg-val"><a href="tel:+358449361604">+358 44 936 1604</a></div>
+      </div>
+    </div>
+    <div class="cg-cell reveal d1">
+      <div class="cg-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div>
+        <div class="cg-lbl">Email</div>
+        <div class="cg-val"><a href="mailto:info@ilonvirta.fi">info@ilonvirta.fi</a></div>
+      </div>
+    </div>
+    <div class="cg-cell reveal d2">
+      <div class="cg-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <div>
+        <div class="cg-lbl">Sunday service</div>
+        <div class="cg-val">Every Sunday at 11:00 AM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVITE -->
+<section id="invite-en">
+  <div class="invite-inner">
+    <div class="kicker center reveal">Come and see</div>
+    <h2 class="sec-h2 white reveal" style="text-align:center">You belong <em>here.</em></h2>
+    <p class="sec-body reveal" style="color:var(--muted);text-align:center;margin:0 auto 2.5rem">No registration, no requirements, no performance. Our doors are open every Sunday for you.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal d1">
+      <a href="/yhteys" class="btn-gold">Get in touch first</a>
+      <a href="https://maps.google.com/?q=Otavankatu+18+Mikkeli" target="_blank" rel="noopener noreferrer" class="btn-outline-white">Show on map →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-logo">Ilon <em>Virta</em></div>
+      <div class="f-tagline">Koti Jumalan voimalle ja perheelle. Mikkeli, Finland.</div>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Activities</div>
+      <ul>
+        <li><a href="/sunnuntai">Sunday Service</a></li>
+        <li><a href="/lapset">Children's Church</a></li>
+        <li><a href="/evankeliointi">Evangelism</a></li>
+        <li><a href="/raamattukoulu">Bible School</a></li>
+        <li><a href="/tapahtumat">Events</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Media</div>
+      <ul>
+        <li><a href="http://www.youtube.com/@IloinenPodcast" target="_blank" rel="noopener noreferrer">Iloinen Podcast</a></li>
+        <li><a href="http://www.youtube.com/@ilonvirtamikkeli" target="_blank" rel="noopener noreferrer">YouTube Teaching</a></li>
+        <li><a href="https://www.instagram.com/ilonvirtamikkeli" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Contact</div>
+      <ul>
+        <li><a href="https://maps.google.com/?q=Otavankatu+18+Mikkeli" target="_blank" rel="noopener noreferrer">Otavankatu 18, Mikkeli</a></li>
+        <li><a href="tel:+358449361604">+358 44 936 1604</a></li>
+        <li><a href="mailto:info@ilonvirta.fi">info@ilonvirta.fi</a></li>
+        <li><a href="/">Suomeksi</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2025 Ilon Virta Church · Mikkeli, Finland</div>
+    <div class="f-copy">ilonvirta.fi</div>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function toggleMenu(){const m=document.getElementById('mob-menu'),b=document.getElementById('ham-btn'),o=m.classList.toggle('open');b.classList.toggle('active',o);b.setAttribute('aria-expanded',o)}
+function closeMenu(){document.getElementById('mob-menu').classList.remove('open');const b=document.getElementById('ham-btn');b.classList.remove('active');b.setAttribute('aria-expanded','false')}
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
