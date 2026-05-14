@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Ilon Virta Seurakunta Mikkelissä — kristillinen seurakunta, jossa Pyhä Henki liikkuu vapaasti. Kokoukset sunnuntaisin klo 11, Otavankatu 18. Avoin kaikille."/>
+<meta property="og:title" content="Ilon Virta Seurakunta — Mikkeli"/>
+<meta property="og:description" content="Tule sellaisena kuin olet. Sunnuntaisin klo 11, Otavankatu 18, Mikkeli."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://ilonvirta.fi"/>
+<title>Ilon Virta Seurakunta — Mikkeli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:    #141414;
+  --dark-2:  #1C1C1C;
+  --dark-3:  #242424;
+  --anthracite: #2E2E2E;
+  --white:   #FFFFFF;
+  --off-white: #F8F8F8;
+  --light:   #FFFFFF;
+  --light-2: #F4F4F4;
+  --ink:     #1A1A1A;
+  --muted-ink: #666666;
+  --muted:   rgba(255,255,255,0.38);
+  --gold:    #D4A843;
+  --gold-dark: #B8892A;
+  --gold-dim: rgba(212,168,67,0.12);
+  --border:  rgba(255,255,255,0.07);
+  --border-2: rgba(255,255,255,0.12);
+  --border-light: rgba(0,0,0,0.09);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--light);color:var(--ink);overflow-x:hidden;font-weight:300;line-height:1.7}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.75s cubic-bezier(.16,1,.3,1),transform 0.75s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ══ NAV ══ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.2rem,4vw,4rem);height:60px;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border-light);
+  gap:1rem;
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;flex-shrink:0;
+}
+.nav-logo em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{
+  font-size:0.65rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted-ink);text-decoration:none;white-space:nowrap;transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{
+  font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--white);background:var(--dark);
+  padding:0.5rem 1.3rem;text-decoration:none;flex-shrink:0;
+  transition:background 0.2s;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--gold)}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;flex-shrink:0}
+.nav-ham span{width:22px;height:1.5px;background:var(--ink);display:block;transition:all 0.3s}
+.nav-ham.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-ham.active span:nth-child(2){opacity:0}
+.nav-ham.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{
+  display:none;position:fixed;top:60px;left:0;right:0;
+  background:rgba(255,255,255,0.99);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border-light);
+  padding:0.5rem clamp(1.2rem,4vw,4rem) 1.5rem;z-index:998;flex-direction:column;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted-ink);text-decoration:none;padding:0.9rem 0;
+  border-bottom:1px solid var(--border-light);transition:color 0.2s;
+}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu .mobile-cta{
+  margin-top:1rem;background:var(--gold);color:var(--white);text-align:center;
+  padding:0.8rem;border-bottom:none;letter-spacing:0.2em;
+}
+.mobile-menu .mobile-cta:hover{background:var(--dark)}
+
+/* ══ HERO ══ */
+#hero{margin-top:60px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.hero-img{
+  position:absolute;inset:0;
+  background:url('https://d1yei2z3i6k35z.cloudfront.net/17480901/69f6037c430929.49447587_pexels-pamanjoe-28785829.jpg') center 30%/cover no-repeat;
+  animation:subtle-zoom 20s ease-in-out infinite alternate;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(20,20,20,0.35) 0%,rgba(20,20,20,0.55) 50%,rgba(20,20,20,0.88) 100%);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  min-height:calc(100svh - 60px);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);
+  max-width:820px;
+}
+.hero-kicker{
+  font-size:0.62rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.6rem;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-kicker::before{content:'';width:24px;height:1px;background:var(--gold);opacity:0.6}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,6vw,6.5rem);font-weight:300;
+  line-height:0.95;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.4rem;
+}
+.hero-h1 em{font-style:italic;color:var(--gold);display:block;margin-top:0.06em}
+.hero-slogan{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,1.6vw,1.3rem);font-style:italic;font-weight:300;
+  color:rgba(255,255,255,0.5);margin-bottom:2.4rem;
+  max-width:460px;line-height:1.6;
+}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+
+.hero-stats{
+  position:relative;z-index:2;
+  background:var(--white);
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:3px solid var(--gold);
+}
+.h-stat{
+  display:flex;align-items:center;gap:1rem;
+  padding:1.3rem clamp(1rem,3vw,2.5rem);
+  border-right:1px solid var(--border-light);
+}
+.h-stat:last-child{border-right:none}
+.h-ico{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--gold-dim);border:1px solid rgba(212,168,67,0.22);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+}
+.h-ico svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.h-lbl{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:0.15rem}
+.h-val{font-size:0.85rem;font-weight:400;color:var(--ink)}
+
+/* COMMONS */
+section{padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem)}
+.kicker{
+  font-size:0.62rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.2rem;
+  display:flex;align-items:center;gap:0.7rem;
+}
+.kicker::after{content:'';height:1px;width:28px;background:var(--gold);opacity:0.5;display:inline-block}
+.kicker-center{justify-content:center}
+.kicker-center::before{content:'';height:1px;width:28px;background:var(--gold);opacity:0.5;display:inline-block}
+.kicker-center::after{display:none}
+.sec-h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3.8vw,3.4rem);font-weight:300;
+  line-height:1.08;letter-spacing:-0.01em;color:var(--ink);margin-bottom:1.1rem;
+}
+.sec-h2 em{font-style:italic;color:var(--gold)}
+.sec-body{font-size:0.92rem;font-weight:300;color:var(--muted-ink);line-height:1.85;max-width:500px}
+.rule{width:36px;height:1px;background:var(--gold);margin:1.4rem 0;opacity:0.5}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,6rem);align-items:start}
+
+/* BUTTONS */
+.btn-dark{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:var(--dark);color:var(--white);padding:0.85rem 2rem;text-decoration:none;transition:background 0.2s}
+.btn-dark:hover{background:var(--gold)}
+.btn-gold{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:var(--gold);color:var(--white);padding:0.85rem 2rem;text-decoration:none;transition:background 0.2s}
+.btn-gold:hover{background:var(--ink)}
+.btn-outline-dark{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);border:1px solid var(--border-light);padding:0.85rem 2rem;text-decoration:none;transition:border-color 0.2s,color 0.2s}
+.btn-outline-dark:hover{border-color:var(--gold);color:var(--gold)}
+.btn-outline-white{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);border:1px solid rgba(255,255,255,0.35);padding:0.85rem 2rem;text-decoration:none;transition:border-color 0.2s,background 0.2s}
+.btn-outline-white:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.65)}
+
+/* ══ UUDELLE KÄVIJÄLLE ══ */
+#welcome{background:var(--white)}
+.faq-item{border-bottom:1px solid var(--border-light)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;font-size:0.88rem;font-weight:300;color:var(--ink);cursor:pointer;user-select:none;gap:1rem}
+.faq-toggle{width:20px;height:20px;border:1px solid var(--border-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;color:var(--muted-ink);transition:all 0.3s}
+.faq-item.open .faq-toggle{background:var(--gold);border-color:var(--gold);color:var(--white);transform:rotate(45deg)}
+.faq-a{font-size:0.84rem;color:var(--muted-ink);line-height:1.8;max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(.16,1,.3,1),margin 0.3s}
+.faq-item.open .faq-a{max-height:200px;margin-bottom:1rem}
+
+.welcome-panel{background:var(--dark);padding:2.8rem 2.4rem;position:relative;overflow:hidden}
+.welcome-panel::before{content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,0.12) 0%,transparent 70%)}
+.wp-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;font-style:italic;color:var(--white);margin-bottom:0.7rem;line-height:1.2}
+.wp-body{font-size:0.85rem;color:var(--muted);line-height:1.8;margin-bottom:1.8rem}
+.wp-rule{height:1px;background:var(--border);margin:1.2rem 0}
+.wp-row{display:flex;justify-content:space-between;align-items:baseline;padding:0.45rem 0}
+.wp-lbl{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.wp-val{font-size:0.86rem;color:var(--white);font-weight:300}
+
+/* ══ SLOGAN BAND ══ */
+.slogan-band{
+  background:var(--dark-2);padding:60px clamp(1.5rem,5vw,5rem);text-align:center;position:relative;overflow:hidden;
+}
+.slogan-band::before{
+  content:'';position:absolute;inset:0;
+  background:url('https://d1yei2z3i6k35z.cloudfront.net/17480901/69f5f1114c2f91.80499189_pexels-shox-36301945.jpg') center/cover no-repeat;
+  opacity:0.05;
+}
+.slogan-text{position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.6rem);font-weight:300;font-style:italic;color:var(--white);line-height:1.45;max-width:680px;margin:0 auto}
+.slogan-text em{color:var(--gold);font-style:normal}
+.slogan-ref{position:relative;z-index:1;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:1.2rem}
+
+/* ══ KUVA + KEITÄ OLEMME ══ */
+.img-section{display:grid;grid-template-columns:1fr 1fr;min-height:460px}
+.img-section-img{position:relative;overflow:hidden;min-height:280px}
+.img-section-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 8s ease}
+.img-section:hover .img-section-img img{transform:scale(1.04)}
+.img-section-content{background:var(--light-2);padding:clamp(3rem,6vw,5rem);display:flex;flex-direction:column;justify-content:center}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:0;border:1px solid var(--border-light)}
+.val{padding:1.6rem;border-right:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
+.val:nth-child(2n){border-right:none}
+.val:nth-last-child(-n+2){border-bottom:none}
+.val-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;line-height:1;margin-bottom:0.3rem;color:rgba(184,137,42,0.2)}
+.val-title{font-size:0.68rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.4rem}
+.val-body{font-size:0.82rem;color:var(--muted-ink);line-height:1.7}
+
+/* ══ SLOGAN GOLD ══ */
+.slogan-gold{background:var(--gold);padding:52px clamp(1.5rem,5vw,5rem);text-align:center}
+.slogan-gold .slogan-text{color:var(--white)}
+.slogan-gold .slogan-text em{color:rgba(255,255,255,0.65)}
+.slogan-gold .slogan-ref{color:rgba(255,255,255,0.45)}
+
+/* ══ KUVAOSIO SITAATTI ══ */
+.quote-section{
+  display:grid;grid-template-columns:1fr 1fr;min-height:380px;
+}
+.quote-section-img{position:relative;overflow:hidden}
+.quote-section-img img{width:100%;height:100%;object-fit:cover;display:block}
+.quote-section-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(20,20,20,0.6) 0%,rgba(20,20,20,0.2) 100%);
+}
+.quote-section-content{
+  background:var(--dark);
+  padding:clamp(3rem,6vw,5rem);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.qs-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.4rem,2.5vw,2rem);
+  font-weight:300;font-style:italic;
+  color:var(--white);line-height:1.5;
+  margin-bottom:1.2rem;
+}
+.qs-quote em{color:var(--gold);font-style:normal}
+.qs-ref{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.28)}
+.qs-body{font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.8;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,0.08)}
+
+/* ══ MITÄ MEILLÄ TAPAHTUU ══ */
+#toiminta{background:var(--light-2)}
+.pages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem}
+.page-card{
+  background:var(--white);border:1px solid var(--border-light);
+  padding:2rem 1.8rem;text-decoration:none;display:block;
+  transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s;
+  position:relative;overflow:hidden;
+}
+.page-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.page-card:hover{border-color:var(--gold);box-shadow:0 4px 24px rgba(0,0,0,0.07);transform:translateY(-3px)}
+.page-card:hover::after{transform:scaleX(1)}
+.pc-tag{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;font-weight:500}
+.pc-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--ink);margin-bottom:0.5rem;line-height:1.2}
+.pc-desc{font-size:0.82rem;color:var(--muted-ink);line-height:1.7}
+.pc-arrow{font-size:0.72rem;color:var(--gold);margin-top:1.2rem;letter-spacing:0.1em;font-weight:500}
+
+/* ══ MEDIA / SOME ══ */
+#media{background:var(--white)}
+.media-layout{display:grid;grid-template-columns:1.3fr 1fr;gap:2px;margin-top:2.5rem}
+.media-featured{
+  background:var(--dark);padding:2.8rem;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.mf-tag{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500}
+.mf-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,2.5vw,2.4rem);font-weight:300;color:var(--white);margin-bottom:0.7rem;line-height:1.15}
+.mf-desc{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2rem}
+.media-links-col{display:grid;grid-template-columns:1fr;gap:2px}
+.media-link{
+  background:var(--light-2);border:none;border-left:2px solid transparent;
+  padding:1.4rem 1.8rem;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  transition:border-color 0.2s,background 0.2s;
+}
+.media-link:hover{border-left-color:var(--gold);background:var(--white)}
+.ml-platform{font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.25rem;font-weight:500}
+.ml-name{font-size:0.9rem;font-weight:400;color:var(--ink)}
+.ml-arr{font-size:0.9rem;color:var(--muted-ink);transition:color 0.2s;flex-shrink:0}
+.media-link:hover .ml-arr{color:var(--gold)}
+
+/* ══ RUKOUSPYYNTÖ ══ */
+#prayer{background:var(--dark-3);padding:clamp(4rem,8vh,6rem) clamp(1.5rem,5vw,5rem)}
+#prayer .kicker{color:var(--gold)}
+#prayer .sec-h2{color:var(--white)}
+#prayer .sec-body{color:var(--muted)}
+.prayer-inner{max-width:580px;margin:0 auto}
+.prayer-form{margin-top:2rem}
+.f-label{display:block;font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem}
+.f-input,.f-textarea{
+  width:100%;background:var(--dark-2);border:1px solid var(--border-2);
+  color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.92rem;font-weight:300;
+  padding:0.75rem 1rem;margin-bottom:1.4rem;outline:none;transition:border-color 0.2s;
+}
+.f-input:focus,.f-textarea:focus{border-color:var(--gold)}
+.f-input::placeholder,.f-textarea::placeholder{color:rgba(255,255,255,0.2)}
+.f-textarea{min-height:100px;resize:vertical}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.f-submit{
+  width:100%;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;
+  background:var(--gold);color:var(--white);border:none;
+  padding:1rem 2rem;cursor:pointer;transition:background 0.2s;
+}
+.f-submit:hover{background:var(--white);color:var(--ink)}
+.f-ok{display:none;margin-top:1rem;font-size:0.84rem;color:var(--gold);text-align:center;letter-spacing:0.06em}
+
+/* ══ FOOTER ══ */
+footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-top:1px solid var(--border)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);margin-bottom:0.5rem}
+.f-logo em{color:var(--gold);font-style:normal}
+.f-tagline{font-size:0.8rem;color:rgba(255,255,255,0.28);font-weight:300;max-width:200px;line-height:1.7}
+.f-col-h{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;opacity:0.7}
+.f-col ul{list-style:none}
+.f-col ul li{margin-bottom:0.5rem}
+.f-col ul li a{font-size:0.82rem;font-weight:300;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.f-col ul li a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.8rem;border-top:1px solid var(--border)}
+.f-copy{font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.2)}
+
+/* ══ KUVAKOLLAASI-RIVI ══ */
+.photo-row{display:grid;grid-template-columns:repeat(4,1fr);height:220px;gap:2px}
+.photo-row-item{overflow:hidden;position:relative}
+.photo-row-item img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease;display:block}
+.photo-row-item:hover img{transform:scale(1.06)}
+.photo-row-item::after{content:'';position:absolute;inset:0;background:rgba(20,20,20,0.15);transition:opacity 0.3s}
+.photo-row-item:hover::after{opacity:0}
+
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes subtle-zoom{from{transform:scale(1.03)}to{transform:scale(1.0)}}
+.hero-kicker{animation:up 0.8s ease both .2s}
+.hero-h1{animation:up 0.9s ease both .35s}
+.hero-slogan{animation:up 0.9s ease both .48s}
+.hero-actions{animation:up 0.9s ease both .6s}
+
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .nav-ham{display:flex}
+  .hero-stats{grid-template-columns:1fr}
+  .h-stat{border-right:none;border-bottom:1px solid var(--border-light)}
+  .h-stat:last-child{border-bottom:none}
+  .two-col,.img-section,.footer-top,.media-layout,.quote-section{grid-template-columns:1fr}
+  .img-section-img{min-height:260px}
+  .quote-section-img{min-height:240px;order:-1}
+  .pages-grid{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .val{border-right:none}
+  .val:nth-last-child(-n+2){border-bottom:1px solid var(--border-light)}
+  .val:last-child{border-bottom:none}
+  .photo-row{grid-template-columns:repeat(2,1fr);height:300px}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .photo-row{grid-template-columns:1fr 1fr;height:260px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Ilon <em>Virta</em></a>
+  <ul class="nav-links">
+    <li><a href="/sunnuntai">Sunnuntai</a></li>
+    <li><a href="/lapset">Lapset</a></li>
+    <li><a href="/evankeliointi">Evankeliointi</a></li>
+    <li><a href="/raamattukoulu">Raamattukoulu</a></li>
+    <li><a href="/tapahtumat">Tapahtumat</a></li>
+    <li><a href="/yhteys">Yhteys</a></li>
+    <li><a href="/english">In English</a></li>
+  </ul>
+  <a href="#welcome" class="nav-cta">Olen uusi →</a>
+  <button class="nav-ham" id="ham-btn" onclick="toggleMenu()" aria-label="Avaa valikko" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mob-menu" role="navigation" aria-label="Mobiilivalikko">
+  <a href="/sunnuntai" onclick="closeMenu()">Sunnuntai</a>
+  <a href="/lapset" onclick="closeMenu()">Lapset</a>
+  <a href="/evankeliointi" onclick="closeMenu()">Evankeliointi</a>
+  <a href="/raamattukoulu" onclick="closeMenu()">Raamattukoulu</a>
+  <a href="/tapahtumat" onclick="closeMenu()">Tapahtumat</a>
+  <a href="/yhteys" onclick="closeMenu()">Yhteys</a>
+  <a href="/english" onclick="closeMenu()">In English</a>
+  <a href="#welcome" class="mobile-cta" onclick="closeMenu()">Olen uusi kävijä →</a>
+</div>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">Ilon Virta Seurakunta · Mikkeli</div>
+    <h1 class="hero-h1">Koti Jumalan<em>Voimalle ja Perheelle.</em></h1>
+    <p class="hero-slogan">Tule sellaisena kuin olet — jokainen on tervetullut.</p>
+    <div class="hero-actions">
+      <a href="#welcome" class="btn-gold">Olen uusi kävijä</a>
+      <a href="/sunnuntai" class="btn-outline-white">Sunnuntain info</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="h-stat">
+      <div class="h-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <div><div class="h-lbl">Sunnuntaisin</div><div class="h-val">Kokous klo 11:00</div></div>
+    </div>
+    <div class="h-stat">
+      <div class="h-ico"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <div><div class="h-lbl">Osoite</div><div class="h-val">Otavankatu 18, Mikkeli</div></div>
+    </div>
+    <div class="h-stat">
+      <div class="h-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div><div class="h-lbl">Yhteisö</div><div class="h-val">Avoin kaikille, joka sunnuntai</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- UUDELLE KÄVIJÄLLE -->
+<section id="welcome">
+  <div class="two-col">
+    <div>
+      <div class="kicker reveal">Uudelle kävijälle</div>
+      <h2 class="sec-h2 reveal">Ensimmäinen kerta <em>voi jännittää.</em></h2>
+      <div class="rule reveal"></div>
+      <p class="sec-body reveal">Se on täysin normaalia. Meillä ei tarvitse tietää kaikkea etukäteen — eikä olla tietynlainen. Tule vaan sellaisena kuin olet.</p>
+      <div style="margin-top:2rem" class="reveal">
+        <div class="faq-item">
+          <div class="faq-q">Pitääkö minulla olla kirkollinen tausta? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Ei lainkaan. Monet meistä löysivät seurakunnan ensimmäistä kertaa aikuisiällä. Kukaan ei testaa sinua ovella.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Miten pitää pukeutua? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Kuten sinulle sopii. Farkut, mekko, lenkkarit — tule sellaisena kuin olet.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Voiko lapset tuoda? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Ehdottomasti. Lapsille on oma ohjelma, joten vanhemmat saavat nauttia kokouksesta rauhassa.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Pitääkö sitoutua johonkin? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Ei. Voit tulla, istua, kuunnella ja lähteä. Paine ei kuulu tänne.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Mitä tapahtuu kun tulen sisälle? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Joku toivottaa sinut tervetulleeksi. Et jää yksin. Kannattaa tulla hieman ennen kokouksen alkua.</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="welcome-panel">
+        <div class="wp-title">Tervetuloa ensi sunnuntaina.</div>
+        <div class="wp-body">Helpoin tapa tutustua. Ei ennakkoilmoittautumista — tule vaan.</div>
+        <div class="wp-rule"></div>
+        <div class="wp-row"><span class="wp-lbl">Sunnuntaikokous</span><span class="wp-val">Klo 11:00</span></div>
+        <div class="wp-row"><span class="wp-lbl">Hyvä saapumisaika</span><span class="wp-val">Noin klo 10:45</span></div>
+        <div class="wp-row"><span class="wp-lbl">Osoite</span><span class="wp-val">Otavankatu 18, Mikkeli</span></div>
+        <div class="wp-row"><span class="wp-lbl">Puhelin</span><span class="wp-val"><a href="tel:+358449361604" style="color:var(--white);text-decoration:none">+358 44 936 1604</a></span></div>
+        <div class="wp-row"><span class="wp-lbl">Sähköposti</span><span class="wp-val"><a href="mailto:info@ilonvirta.fi" style="color:var(--white);text-decoration:none">info@ilonvirta.fi</a></span></div>
+        <div class="wp-rule"></div>
+        <a href="#prayer" class="btn-gold" style="display:block;text-align:center">Lähetä rukouspyyntö</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLOGAN 1 -->
+<div class="slogan-band">
+  <div class="slogan-text reveal">"Rakasta Herraa, Jumalaasi, koko sydämestäsi, koko sielustasi ja koko mielestäsi." <em>— Matt. 22:37</em></div>
+  <div class="slogan-ref reveal d1">Tule kokemaan tämä rakkaus kanssamme</div>
+</div>
+
+<!-- KUVARIIVI — tunnelmakuvia -->
+<div class="photo-row">
+  <div class="photo-row-item">
+    <img src="https://d1yei2z3i6k35z.cloudfront.net/17480901/69f604a06d4309.11905826_pexels-thelatinaphotographer-7261872.jpg" alt="Seurakuntayhteisö" loading="lazy"/>
+  </div>
+  <div class="photo-row-item">
+    <img src="https://images.pexels.com/photos/8468/church-interior-worship-pray.jpg?auto=compress&cs=tinysrgb&w=800" alt="Jumalanpalvelus" loading="lazy"/>
+  </div>
+  <div class="photo-row-item">
+    <img src="https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Yhteisö ja rukous" loading="lazy"/>
+  </div>
+  <div class="photo-row-item">
+    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Yhteinen hetki" loading="lazy"/>
+  </div>
+</div>
+
+<!-- KEITÄ OLEMME + KUVA -->
+<div class="img-section">
+  <div class="img-section-img">
+    <img src="https://d1yei2z3i6k35z.cloudfront.net/17480901/69f604a06d4309.11905826_pexels-thelatinaphotographer-7261872.jpg" alt="Seurakuntayhteisö"/>
+  </div>
+  <div class="img-section-content">
+    <div class="kicker reveal">Keitä olemme</div>
+    <h2 class="sec-h2 reveal">Seurakunta, jossa <em>Pyhä Henki liikkuu vapaasti.</em></h2>
+    <div class="rule reveal"></div>
+    <div class="values-grid reveal d1">
+      <div class="val">
+        <div class="val-n">01</div>
+        <div class="val-title">Elävä usko</div>
+        <div class="val-body">Usko ei ole vain sanoja — se näkyy elämässä ja muutoksessa.</div>
+      </div>
+      <div class="val">
+        <div class="val-n">02</div>
+        <div class="val-title">Koko Jumalan sana</div>
+        <div class="val-body">Uskomme Raamattuun 100% — ei valikoiden, ei häpeillen.</div>
+      </div>
+      <div class="val">
+        <div class="val-n">03</div>
+        <div class="val-title">Pyhän Hengen vapaus</div>
+        <div class="val-body">Jumala toimii tänäänkin. Teemme tilaa sille mitä Hän tekee.</div>
+      </div>
+      <div class="val">
+        <div class="val-n">04</div>
+        <div class="val-title">Avoin kaikille</div>
+        <div class="val-body">Tule juuri sellaisena kuin olet. Jokainen on tervetullut.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLOGAN GOLD -->
+<div class="slogan-gold">
+  <div class="slogan-text reveal">"Ylistäkää Herraa, sillä Hän on hyvä — <em>Hänen armonsa kestää iankaikkisesti."</em></div>
+  <div class="slogan-ref reveal d1">Ps. 107:1</div>
+</div>
+
+<!-- KUVA + SITAATTI OSIO -->
+<div class="quote-section">
+  <div class="quote-section-img">
+    <img src="https://images.pexels.com/photos/2774546/pexels-photo-2774546.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Yhteisöllisyys" loading="lazy"/>
+  </div>
+  <div class="quote-section-content">
+    <div class="kicker reveal" style="color:var(--gold)">Miksi tulla</div>
+    <div class="qs-quote reveal d1">"Et tarvitse vastausta kaikkeen. <em>Riittää, että tulet.</em>"</div>
+    <div class="qs-ref reveal d2">Ilon Virta · Mikkeli</div>
+    <div class="qs-body reveal d2">Monet meistä saapuivat ensimmäistä kertaa epäileväisinä tai jopa pelonsekaisina. Löysimme paikan, jossa sai olla ihminen — ei suorituskykyinen, ei täydellinen. Vain oma itsensä.</div>
+  </div>
+</div>
+
+<!-- MITÄ MEILLÄ TAPAHTUU -->
+<section id="toiminta">
+  <div class="kicker reveal">Toiminta</div>
+  <h2 class="sec-h2 reveal">Mitä meillä <em>tapahtuu.</em></h2>
+  <div class="pages-grid">
+    <a href="/sunnuntai" class="page-card reveal d1">
+      <div class="pc-tag">Viikoittain</div>
+      <div class="pc-title">Sunnuntaikokous</div>
+      <div class="pc-desc">Joka sunnuntai klo 11. Ylistystä, opetusta, rukousta ja yhteisöä.</div>
+      <div class="pc-arrow">Lue lisää →</div>
+    </a>
+    <a href="/lapset" class="page-card reveal d2">
+      <div class="pc-tag">Lapsille</div>
+      <div class="pc-title">Lasten toiminta</div>
+      <div class="pc-desc">Lapsilla on oma hauska ja hengellinen ohjelma sunnuntaisin.</div>
+      <div class="pc-arrow">Lue lisää →</div>
+    </a>
+    <a href="/evankeliointi" class="page-card reveal d3">
+      <div class="pc-tag">Perjantaisin klo 18</div>
+      <div class="pc-title">Evankeliointi</div>
+      <div class="pc-desc">Menemme kaduille jakamaan hyviä uutisia Jeesuksesta. Tule mukaan.</div>
+      <div class="pc-arrow">Lue lisää →</div>
+    </a>
+    <a href="/raamattukoulu" class="page-card reveal d1">
+      <div class="pc-tag">Kasvua</div>
+      <div class="pc-title">Raamattukoulu</div>
+      <div class="pc-desc">Syvenny Jumalan sanan tuntemiseen. Avoin kaikille, maksuton.</div>
+      <div class="pc-arrow">Lue lisää →</div>
+    </a>
+    <a href="/tapahtumat" class="page-card reveal d2">
+      <div class="pc-tag">Kalenteri</div>
+      <div class="pc-title">Tapahtumat</div>
+      <div class="pc-desc">Katso mitä on tulossa — leirit, illat, erityistapahtumat.</div>
+      <div class="pc-arrow">Lue lisää →</div>
+    </a>
+    <a href="/yhteys" class="page-card reveal d3">
+      <div class="pc-tag">Yhteys</div>
+      <div class="pc-title">Ota yhteyttä</div>
+      <div class="pc-desc">Kysy, kerro tai tule käymään. Olemme läsnä ja tavoitettavissa.</div>
+      <div class="pc-arrow">Lue lisää →</div>
+    </a>
+  </div>
+</section>
+
+<!-- MEDIA / SOME -->
+<section id="media">
+  <div class="kicker reveal">Seuraa ja kuuntele</div>
+  <h2 class="sec-h2 reveal">Ilon Virta <em>verkossa.</em></h2>
+  <p class="sec-body reveal">Opetukset, podcast ja arki — seuraa mukana myös somessa.</p>
+  <div class="media-layout">
+    <div class="media-featured reveal">
+      <div>
+        <div class="mf-tag">YouTube · Raamattuopetukset</div>
+        <div class="mf-title">Pastorin opetukset</div>
+        <div class="mf-desc">Raamattuopetuksia suoraan YouTubesta — käytännöllistä, rohkeaa ja hengellistä. Katso milloin tahansa.</div>
+      </div>
+      <a href="http://www.youtube.com/@ilonvirtamikkeli" class="btn-gold" target="_blank" rel="noopener noreferrer" style="width:fit-content">Katso →</a>
+    </div>
+    <div class="media-links-col">
+      <a href="http://www.youtube.com/@IloinenPodcast" class="media-link reveal d1" target="_blank" rel="noopener noreferrer">
+        <div><div class="ml-platform">Podcast · YouTube · Spotify</div><div class="ml-name">Iloinen Podcast</div></div>
+        <div class="ml-arr">→</div>
+      </a>
+      <a href="https://www.instagram.com/ilonvirtamikkeli" class="media-link reveal d2" target="_blank" rel="noopener noreferrer">
+        <div><div class="ml-platform">Instagram · Seurakunta</div><div class="ml-name">@ilonvirtamikkeli</div></div>
+        <div class="ml-arr">→</div>
+      </a>
+      <a href="https://www.instagram.com/jennarinkinen" class="media-link reveal d3" target="_blank" rel="noopener noreferrer">
+        <div><div class="ml-platform">Instagram · Pastori</div><div class="ml-name">@jennarinkinen</div></div>
+        <div class="ml-arr">→</div>
+      </a>
+      <a href="https://www.instagram.com/mikarinkinen" class="media-link reveal d4" target="_blank" rel="noopener noreferrer">
+        <div><div class="ml-platform">Instagram · Pastori</div><div class="ml-name">@mikarinkinen</div></div>
+        <div class="ml-arr">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RUKOUSPYYNTÖ -->
+<section id="prayer">
+  <div class="prayer-inner">
+    <div class="kicker reveal kicker-center">Rukouspyyntö</div>
+    <h2 class="sec-h2 reveal" style="text-align:center">Voimme <em>rukoilla puolestasi.</em></h2>
+    <p class="sec-body reveal" style="text-align:center;margin:0 auto 0.5rem">Lähetä rukouspyyntösi — luemme jokaisen ja rukoilemme puolestasi.</p>
+    <form class="prayer-form reveal d1" id="prayer-form" novalidate>
+      <div class="f-row">
+        <div><label class="f-label">Nimesi</label><input class="f-input" type="text" name="nimi" placeholder="Etunimi" autocomplete="given-name"/></div>
+        <div><label class="f-label">Sähköposti (vapaaehtoinen)</label><input class="f-input" type="email" name="email" placeholder="sinä@esimerkki.fi" autocomplete="email"/></div>
+      </div>
+      <label class="f-label">Rukouspyyntösi *</label>
+      <textarea class="f-textarea" name="rukous" placeholder="Kirjoita vapaasti — kaikki pysyy luottamuksellisena." required></textarea>
+      <button type="submit" class="f-submit">Lähetä rukouspyyntö</button>
+      <div class="f-ok" id="prayerOk">✓ Rukouspyyntö vastaanotettu — rukoilemme puolestasi!</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-logo">Ilon <em>Virta</em></div>
+      <div class="f-tagline">Koti Jumalan voimalle ja perheelle. Mikkeli.</div>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Toiminta</div>
+      <ul>
+        <li><a href="/sunnuntai">Sunnuntaikokous</a></li>
+        <li><a href="/lapset">Lasten toiminta</a></li>
+        <li><a href="/evankeliointi">Evankeliointi</a></li>
+        <li><a href="/raamattukoulu">Raamattukoulu</a></li>
+        <li><a href="/tapahtumat">Tapahtumat</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Media</div>
+      <ul>
+        <li><a href="http://www.youtube.com/@IloinenPodcast" target="_blank" rel="noopener noreferrer">Iloinen Podcast</a></li>
+        <li><a href="http://www.youtube.com/@ilonvirtamikkeli" target="_blank" rel="noopener noreferrer">Pastorin opetukset</a></li>
+        <li><a href="https://www.instagram.com/ilonvirtamikkeli" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Yhteystiedot</div>
+      <ul>
+        <li><a href="https://maps.google.com/?q=Otavankatu+18+Mikkeli" target="_blank" rel="noopener noreferrer">Otavankatu 18, Mikkeli</a></li>
+        <li><a href="tel:+358449361604">+358 44 936 1604</a></li>
+        <li><a href="mailto:info@ilonvirta.fi">info@ilonvirta.fi</a></li>
+        <li><a href="/english">In English</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2025 Ilon Virta Seurakunta · Mikkeli</div>
+    <div class="f-copy">ilonvirta.fi</div>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+
+function toggleMenu(){
+  const menu=document.getElementById('mob-menu');
+  const btn=document.getElementById('ham-btn');
+  const isOpen=menu.classList.toggle('open');
+  btn.classList.toggle('active',isOpen);
+  btn.setAttribute('aria-expanded',isOpen);
+}
+function closeMenu(){
+  document.getElementById('mob-menu').classList.remove('open');
+  const btn=document.getElementById('ham-btn');
+  btn.classList.remove('active');
+  btn.setAttribute('aria-expanded','false');
+}
+
+document.getElementById('prayer-form').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=this.querySelector('.f-submit');
+  btn.disabled=true;btn.textContent='Lähetetään…';
+  const data=new FormData(e.target);
+  data.append('_subject','Rukouspyyntö — Ilon Virta');
+  try{
+    const res=await fetch('https://formspree.io/f/xeenobgv',{
+      method:'POST',body:data,headers:{'Accept':'application/json'}
+    });
+    if(res.ok){
+      document.getElementById('prayerOk').style.display='block';
+      e.target.reset();
+      btn.textContent='Lähetetty ✓';
+    }else{
+      btn.disabled=false;btn.textContent='Lähetä rukouspyyntö';
+      alert('Jokin meni pieleen. Yritä uudelleen tai kirjoita suoraan: info@ilonvirta.fi');
+    }
+  }catch(err){
+    btn.disabled=false;btn.textContent='Lähetä rukouspyyntö';
+    alert('Verkkovirhe. Yritä uudelleen tai kirjoita: info@ilonvirta.fi');
+  }
+});
+</script>
+</body>
+</html>
