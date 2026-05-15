@@ -381,17 +381,17 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAV — linkit korjattu GitHub Pages -muotoon -->
 <nav>
   <a href="/" class="nav-logo">Ilon <em>Virta</em></a>
   <ul class="nav-links">
-    <li><a href="/sunnuntai">Sunnuntai</a></li>
-    <li><a href="/lapset">Lapset</a></li>
-    <li><a href="/evankeliointi">Evankeliointi</a></li>
-    <li><a href="/raamattukoulu">Raamattukoulu</a></li>
-    <li><a href="/tapahtumat">Tapahtumat</a></li>
-    <li><a href="/yhteys">Yhteys</a></li>
-    <li><a href="/english">In English</a></li>
+    <li><a href="sunnuntai/">Sunnuntai</a></li>
+    <li><a href="lapset/">Lapset</a></li>
+    <li><a href="evankeliointi/">Evankeliointi</a></li>
+    <li><a href="raamattukoulu/">Raamattukoulu</a></li>
+    <li><a href="tapahtumat/">Tapahtumat</a></li>
+    <li><a href="yhteys/">Yhteys</a></li>
+    <li><a href="english/">In English</a></li>
   </ul>
   <a href="#welcome" class="nav-cta">Olen uusi →</a>
   <button class="nav-ham" id="ham-btn" onclick="toggleMenu()" aria-label="Avaa valikko" aria-expanded="false">
@@ -400,13 +400,13 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
 </nav>
 
 <div class="mobile-menu" id="mob-menu" role="navigation" aria-label="Mobiilivalikko">
-  <a href="/sunnuntai" onclick="closeMenu()">Sunnuntai</a>
-  <a href="/lapset" onclick="closeMenu()">Lapset</a>
-  <a href="/evankeliointi" onclick="closeMenu()">Evankeliointi</a>
-  <a href="/raamattukoulu" onclick="closeMenu()">Raamattukoulu</a>
-  <a href="/tapahtumat" onclick="closeMenu()">Tapahtumat</a>
-  <a href="/yhteys" onclick="closeMenu()">Yhteys</a>
-  <a href="/english" onclick="closeMenu()">In English</a>
+  <a href="sunnuntai/" onclick="closeMenu()">Sunnuntai</a>
+  <a href="lapset/" onclick="closeMenu()">Lapset</a>
+  <a href="evankeliointi/" onclick="closeMenu()">Evankeliointi</a>
+  <a href="raamattukoulu/" onclick="closeMenu()">Raamattukoulu</a>
+  <a href="tapahtumat/" onclick="closeMenu()">Tapahtumat</a>
+  <a href="yhteys/" onclick="closeMenu()">Yhteys</a>
+  <a href="english/" onclick="closeMenu()">In English</a>
   <a href="#welcome" class="mobile-cta" onclick="closeMenu()">Olen uusi kävijä →</a>
 </div>
 
@@ -420,7 +420,7 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
     <p class="hero-slogan">Seurakunta, jossa Pyhä Henki saa liikkua vapaasti, joka uskoo koko Jumalan Sanan eikä häpeä evankeliumia.</p>
     <div class="hero-actions">
       <a href="#welcome" class="btn-gold">Olen uusi kävijä</a>
-      <a href="/sunnuntai" class="btn-outline-white">Sunnuntain info</a>
+      <a href="sunnuntai/" class="btn-outline-white">Sunnuntain info</a>
     </div>
   </div>
   <div class="hero-stats">
@@ -493,8 +493,6 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
   <div class="slogan-ref reveal d1">Tule kokemaan tämä rakkaus kanssamme</div>
 </div>
 
-
-
 <!-- KEITÄ OLEMME + KUVA -->
 <div class="img-section">
   <div class="img-section-img">
@@ -529,43 +527,42 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
   </div>
 </div>
 
-
 <!-- MITÄ MEILLÄ TAPAHTUU -->
 <section id="toiminta">
   <div class="kicker reveal">Toiminta</div>
   <h2 class="sec-h2 reveal">Mitä meillä <em>tapahtuu.</em></h2>
   <div class="pages-grid">
-    <a href="/sunnuntai" class="page-card reveal d1">
+    <a href="sunnuntai/" class="page-card reveal d1">
       <div class="pc-tag">Viikoittain</div>
       <div class="pc-title">Sunnuntaikokous</div>
       <div class="pc-desc">Joka sunnuntai klo 11. Ylistystä, opetusta, rukousta ja yhteisöä.</div>
       <div class="pc-arrow">Lue lisää →</div>
     </a>
-    <a href="/lapset" class="page-card reveal d2">
+    <a href="lapset/" class="page-card reveal d2">
       <div class="pc-tag">Lapsille</div>
       <div class="pc-title">Lasten toiminta</div>
       <div class="pc-desc">Lapsilla on oma hauska ja hengellinen ohjelma sunnuntaisin.</div>
       <div class="pc-arrow">Lue lisää →</div>
     </a>
-    <a href="/evankeliointi" class="page-card reveal d3">
+    <a href="evankeliointi/" class="page-card reveal d3">
       <div class="pc-tag">Perjantaisin klo 18</div>
       <div class="pc-title">Evankeliointi</div>
       <div class="pc-desc">Menemme kaduille jakamaan hyviä uutisia Jeesuksesta. Tule mukaan.</div>
       <div class="pc-arrow">Lue lisää →</div>
     </a>
-    <a href="/raamattukoulu" class="page-card reveal d1">
+    <a href="raamattukoulu/" class="page-card reveal d1">
       <div class="pc-tag">Kasvua</div>
       <div class="pc-title">Raamattukoulu</div>
       <div class="pc-desc">Syvenny Jumalan sanan tuntemiseen. Avoin kaikille, maksuton.</div>
       <div class="pc-arrow">Lue lisää →</div>
     </a>
-    <a href="/tapahtumat" class="page-card reveal d2">
+    <a href="tapahtumat/" class="page-card reveal d2">
       <div class="pc-tag">Kalenteri</div>
       <div class="pc-title">Tapahtumat</div>
       <div class="pc-desc">Katso mitä on tulossa — leirit, illat, erityistapahtumat.</div>
       <div class="pc-arrow">Lue lisää →</div>
     </a>
-    <a href="/yhteys" class="page-card reveal d3">
+    <a href="yhteys/" class="page-card reveal d3">
       <div class="pc-tag">Yhteys</div>
       <div class="pc-title">Ota yhteyttä</div>
       <div class="pc-desc">Kysy, kerro tai tule käymään. Olemme täällä ja tavoitettavissa.</div>
@@ -638,11 +635,11 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
     <div class="f-col">
       <div class="f-col-h">Toiminta</div>
       <ul>
-        <li><a href="/sunnuntai">Sunnuntaikokous</a></li>
-        <li><a href="/lapset">Lasten toiminta</a></li>
-        <li><a href="/evankeliointi">Evankeliointi</a></li>
-        <li><a href="/raamattukoulu">Raamattukoulu</a></li>
-        <li><a href="/tapahtumat">Tapahtumat</a></li>
+        <li><a href="sunnuntai/">Sunnuntaikokous</a></li>
+        <li><a href="lapset/">Lasten toiminta</a></li>
+        <li><a href="evankeliointi/">Evankeliointi</a></li>
+        <li><a href="raamattukoulu/">Raamattukoulu</a></li>
+        <li><a href="tapahtumat/">Tapahtumat</a></li>
       </ul>
     </div>
     <div class="f-col">
@@ -659,7 +656,7 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
         <li><a href="https://maps.google.com/?q=Otavankatu+18+Mikkeli" target="_blank" rel="noopener noreferrer">Otavankatu 18, Mikkeli</a></li>
         <li><a href="tel:+358449361604">+358 44 936 1604</a></li>
         <li><a href="mailto:info@ilonvirta.fi">info@ilonvirta.fi</a></li>
-        <li><a href="/english">In English</a></li>
+        <li><a href="english/">In English</a></li>
       </ul>
     </div>
   </div>
