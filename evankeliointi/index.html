@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Evankeliointi — Ilon Virta Seurakunta Mikkeli. Joka perjantai klo 18, Otavankatu 18. Tule jakamaan hyviä uutisia."/>
+<title>Evankeliointi — Ilon Virta Mikkeli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#141414;--dark-2:#1C1C1C;--dark-3:#242424;
+  --white:#FFFFFF;--light:#FFFFFF;--light-2:#F6F6F6;
+  --ink:#1A1A1A;--muted-ink:#666666;
+  --muted:rgba(255,255,255,0.38);
+  --gold:#D4A843;--gold-dark:#B8892A;--gold-dim:rgba(212,168,67,0.12);
+  --border:rgba(255,255,255,0.07);--border-2:rgba(255,255,255,0.12);
+  --border-light:rgba(0,0,0,0.09);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;font-weight:300;line-height:1.7}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.2rem,4vw,4rem);height:60px;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-light);gap:1rem}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;flex-shrink:0}
+.nav-logo em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-size:0.65rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted-ink);text-decoration:none;white-space:nowrap;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-cta{font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);background:var(--dark);padding:0.5rem 1.3rem;text-decoration:none;flex-shrink:0;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold)}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;flex-shrink:0}
+.nav-ham span{width:22px;height:1.5px;background:var(--ink);display:block;transition:all .3s}
+.nav-ham.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-ham.active span:nth-child(2){opacity:0}
+.nav-ham.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(255,255,255,.99);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-light);padding:0.5rem clamp(1.2rem,4vw,4rem) 1.5rem;z-index:998;flex-direction:column}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted-ink);text-decoration:none;padding:0.9rem 0;border-bottom:1px solid var(--border-light);transition:color .2s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu .mob-cta{margin-top:1rem;background:var(--gold);color:var(--white);text-align:center;padding:0.8rem;border-bottom:none;letter-spacing:0.2em}
+.mobile-menu .mob-cta:hover{background:var(--dark)}
+
+/* HERO */
+.page-hero{margin-top:60px;position:relative;overflow:hidden}
+.ph-img{position:absolute;inset:0;background:url('https://d1yei2z3i6k35z.cloudfront.net/17480901/69f5f1114c2f91.80499189_pexels-shox-36301945.jpg') center 30%/cover no-repeat;animation:subtle-zoom 18s ease-in-out infinite alternate}
+.ph-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,20,20,0.45) 0%,rgba(20,20,20,0.6) 50%,rgba(20,20,20,0.92) 100%)}
+.ph-inner{position:relative;z-index:2;min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);max-width:800px}
+.ph-kicker{font-size:0.62rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;display:flex;align-items:center;gap:10px}
+.ph-kicker::before{content:'';width:24px;height:1px;background:var(--gold);opacity:0.6}
+.ph-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:300;line-height:0.97;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.2rem}
+.ph-h1 em{font-style:italic;color:var(--gold);display:block;margin-top:0.05em}
+.ph-sub{font-size:0.92rem;color:rgba(255,255,255,0.45);max-width:440px;line-height:1.8}
+
+/* INFO STRIP */
+.info-strip{background:var(--white);display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--gold)}
+.is-cell{display:flex;align-items:center;gap:1rem;padding:1.4rem clamp(1rem,3vw,2.5rem);border-right:1px solid var(--border-light)}
+.is-cell:last-child{border-right:none}
+.is-ico{width:32px;height:32px;border-radius:50%;background:var(--gold-dim);border:1px solid rgba(212,168,67,0.22);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.is-ico svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.is-lbl{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:0.15rem}
+.is-val{font-size:0.88rem;font-weight:400;color:var(--ink)}
+
+/* COMMONS */
+section{padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem)}
+.kicker{font-size:0.62rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.7rem}
+.kicker::after{content:'';height:1px;width:28px;background:var(--gold);opacity:0.5;display:inline-block}
+.kicker.center{justify-content:center}
+.kicker.center::before{content:'';height:1px;width:28px;background:var(--gold);opacity:0.5;display:inline-block}
+.kicker.center::after{display:none}
+.sec-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.8vw,3.4rem);font-weight:300;line-height:1.08;letter-spacing:-0.01em;color:var(--ink);margin-bottom:1.1rem}
+.sec-h2 em{font-style:italic;color:var(--gold)}
+.sec-h2.white{color:var(--white)}
+.sec-body{font-size:0.92rem;font-weight:300;color:var(--muted-ink);line-height:1.85;max-width:520px}
+.rule{width:36px;height:1px;background:var(--gold);margin:1.4rem 0;opacity:0.5}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,6rem);align-items:start}
+
+.btn-dark{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:var(--dark);color:var(--white);padding:0.85rem 2rem;text-decoration:none;transition:background .2s}
+.btn-dark:hover{background:var(--gold)}
+.btn-gold{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:var(--gold);color:var(--white);padding:0.85rem 2rem;text-decoration:none;transition:background .2s}
+.btn-gold:hover{background:var(--ink)}
+.btn-outline-dark{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);border:1px solid var(--border-light);padding:0.85rem 2rem;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-outline-dark:hover{border-color:var(--gold);color:var(--gold)}
+
+/* COUNTER BAND */
+.counter-band{background:var(--light-2);border-bottom:1px solid var(--border-light);border-top:1px solid var(--border-light);padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem)}
+.counter-inner{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:center}
+.counter-left{padding-right:clamp(2rem,5vw,5rem);border-right:1px solid var(--border-light)}
+.counter-eyebrow{font-size:0.6rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.dot-live{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:breathe 2.5s ease-in-out infinite}
+.counter-num{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,8vw,96px);font-weight:300;letter-spacing:-2px;line-height:1;color:var(--ink);transition:transform .35s cubic-bezier(0.34,1.4,0.64,1)}
+.counter-num.pop{transform:scale(1.05)}
+.counter-unit{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--muted-ink);margin-top:0.5rem}
+.counter-right{padding-left:clamp(2rem,5vw,5rem)}
+.counter-desc{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:300;font-style:italic;color:var(--muted-ink);line-height:1.6;margin-bottom:1rem}
+.counter-note{font-size:0.84rem;color:var(--muted-ink);line-height:1.75}
+
+/* RAAMATTU VERSE */
+.verse-section{background:var(--dark-2);padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);position:relative;overflow:hidden}
+.verse-section::before{content:'';position:absolute;inset:0;background:url('https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=900') center/cover no-repeat;opacity:0.05}
+.verse-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;display:grid;grid-template-columns:60px 1fr;gap:2rem;align-items:start}
+.verse-glyph{font-family:'Cormorant Garamond',serif;font-size:72px;font-style:italic;color:var(--gold);opacity:0.3;line-height:1}
+.verse-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.2vw,1.9rem);font-style:italic;font-weight:300;color:rgba(255,255,255,0.85);line-height:1.6;margin-bottom:1rem}
+.verse-text em{color:var(--gold);font-style:normal}
+.verse-ref{font-size:0.62rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);opacity:0.7}
+
+/* NÄKY */
+#vision{background:var(--white)}
+.mission-big{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:300;line-height:1.55;color:var(--ink);margin-bottom:1.2rem}
+.mission-big em{color:var(--gold);font-style:italic}
+.mission-big strong{font-weight:500}
+.gospel-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(212,168,67,0.35);padding:0.6rem 1.2rem;font-size:0.82rem;color:var(--gold-dark);margin-top:1.4rem;letter-spacing:0.05em}
+
+/* PERJANTAI */
+.event-band{background:var(--dark-3);padding:clamp(4rem,8vh,6rem) clamp(1.5rem,5vw,5rem)}
+.event-inner{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
+.event-tag{font-size:0.6rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:1.2rem}
+.event-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:1.2rem}
+.event-desc{font-size:0.9rem;color:var(--muted);line-height:1.8;max-width:440px;margin-bottom:2rem}
+.event-chips{display:flex;flex-wrap:wrap;gap:0.8rem}
+.chip{background:var(--dark-2);border:1px solid var(--border-2);padding:0.45rem 1rem;font-size:0.82rem;color:rgba(255,255,255,0.6)}
+
+/* TODISTUKSET */
+#testimonies{background:var(--white)}
+.t-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem}
+.t-card{background:var(--light-2);border:1px solid var(--border-light);padding:2rem;transition:border-color .25s}
+.t-card:hover{border-color:rgba(212,168,67,0.4)}
+.t-card.wide{grid-column:span 2;background:var(--dark);border-color:rgba(212,168,67,0.15)}
+.t-card.wide:hover{border-color:rgba(212,168,67,0.3)}
+.t-mark{font-family:'Cormorant Garamond',serif;font-size:40px;line-height:1;color:var(--border-light);margin-bottom:0.5rem}
+.t-card.wide .t-mark{color:rgba(212,168,67,0.1)}
+.t-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;font-weight:300;color:var(--muted-ink);line-height:1.7;margin-bottom:1.2rem}
+.t-card.wide .t-text{color:rgba(255,255,255,0.65)}
+.t-date{font-size:0.72rem;color:var(--muted-ink);font-style:italic;font-family:'Cormorant Garamond',serif}
+.t-card.wide .t-date{color:rgba(255,255,255,0.3)}
+.t-empty{grid-column:1/-1;text-align:center;padding:4rem 1rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;color:var(--muted-ink)}
+
+/* FOOTER */
+footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-top:1px solid var(--border)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);margin-bottom:0.5rem}
+.f-logo em{color:var(--gold);font-style:normal}
+.f-tagline{font-size:0.8rem;color:rgba(255,255,255,0.28);font-weight:300;max-width:200px;line-height:1.7}
+.f-col-h{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;opacity:0.7}
+.f-col ul{list-style:none}
+.f-col ul li{margin-bottom:0.5rem}
+.f-col ul li a{font-size:0.82rem;font-weight:300;color:var(--muted);text-decoration:none;transition:color .2s}
+.f-col ul li a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.8rem;border-top:1px solid var(--border)}
+.f-copy{font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.2)}
+
+@keyframes subtle-zoom{from{transform:scale(1.04)}to{transform:scale(1.0)}}
+@keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.7)}}
+
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .nav-ham{display:flex}
+  .info-strip,.counter-inner,.two-col,.event-inner,.t-grid,.footer-top{grid-template-columns:1fr}
+  .counter-left{padding-right:0;border-right:none;border-bottom:1px solid var(--border-light);padding-bottom:2rem}
+  .counter-right{padding-left:0}
+  .verse-inner{grid-template-columns:40px 1fr;gap:1rem}
+  .t-card.wide{grid-column:span 1}
+  .is-cell{border-right:none;border-bottom:1px solid var(--border-light)}
+  .is-cell:last-child{border-bottom:none}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.footer-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../" class="nav-logo">Ilon <em>Virta</em></a>
+  <ul class="nav-links">
+    <li><a href="../sunnuntai/">Sunnuntai</a></li>
+    <li><a href="../lapset/">Lapset</a></li>
+    <li><a href="../evankeliointi/" class="active">Evankeliointi</a></li>
+    <li><a href="../raamattukoulu/">Raamattukoulu</a></li>
+    <li><a href="../tapahtumat/">Tapahtumat</a></li>
+    <li><a href="../yhteys/">Yhteys</a></li>
+    <li><a href="../english/">In English</a></li>
+  </ul>
+  <a href="../#welcome" class="nav-cta">Olen uusi →</a>
+  <button class="nav-ham" id="ham-btn" onclick="toggleMenu()" aria-label="Avaa valikko" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mob-menu">
+  <a href="../" onclick="closeMenu()">Etusivu</a>
+  <a href="../sunnuntai/" onclick="closeMenu()">Sunnuntai</a>
+  <a href="../lapset/" onclick="closeMenu()">Lapset</a>
+  <a href="../evankeliointi/" onclick="closeMenu()">Evankeliointi</a>
+  <a href="../raamattukoulu/" onclick="closeMenu()">Raamattukoulu</a>
+  <a href="../tapahtumat/" onclick="closeMenu()">Tapahtumat</a>
+  <a href="../yhteys/" onclick="closeMenu()">Yhteys</a>
+  <a href="../english/" onclick="closeMenu()">In English</a>
+  <a href="../#welcome" class="mob-cta" onclick="closeMenu()">Olen uusi kävijä →</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="ph-img"></div>
+  <div class="ph-overlay"></div>
+  <div class="ph-inner">
+    <div class="ph-kicker">Evankeliointi · Mikkeli</div>
+    <h1 class="ph-h1">Hyviä uutisia<em>kaikille luoduille</em></h1>
+    <p class="ph-sub">Meidät on kutsuttu jakamaan evankeliumia — Jumalan suurta rakkauden suunnitelmaa. Joka perjantai, Mikkelissä.</p>
+  </div>
+  <div class="info-strip">
+    <div class="is-cell">
+      <div class="is-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <div><div class="is-lbl">Perjantaisin</div><div class="is-val">Klo 18:00</div></div>
+    </div>
+    <div class="is-cell">
+      <div class="is-ico"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <div><div class="is-lbl">Kokoontuminen</div><div class="is-val">Otavankatu 18, Mikkeli</div></div>
+    </div>
+    <div class="is-cell">
+      <div class="is-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div><div class="is-lbl">Kokemus</div><div class="is-val">Ei vaadita — tule vaan</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- COUNTER -->
+<div class="counter-band">
+  <div class="counter-inner">
+    <div class="counter-left">
+      <div class="counter-eyebrow"><div class="dot-live"></div>Ilon Virta työn kautta pelastunut</div>
+      <div class="counter-num" id="counter">…</div>
+      <div class="counter-unit">sielua tähän mennessä</div>
+    </div>
+    <div class="counter-right">
+      <div class="counter-desc">"Jokainen luku on ihminen — nimi, tarina, tulevaisuus."</div>
+      <p class="counter-note">Luku päivittyy reaaliajassa sielujenvoittajien kirjauksista. Jumala tekee töitä Mikkelissä.</p>
+    </div>
+  </div>
+</div>
+
+<!-- VERSE -->
+<div class="verse-section">
+  <div class="verse-inner">
+    <div class="verse-glyph">"</div>
+    <div>
+      <div class="verse-text">Menkää kaikkialle maailmaan ja julistakaa evankeliumia <em>kaikille luoduille.</em></div>
+      <div class="verse-ref">Markus 16:15</div>
+    </div>
+  </div>
+</div>
+
+<!-- NÄKY -->
+<section id="vision">
+  <div class="two-col">
+    <div>
+      <div class="kicker reveal">Näkymme</div>
+      <h2 class="sec-h2 reveal">Itä-Suomi kuulee <em>evankeliumin.</em></h2>
+      <div class="rule reveal"></div>
+      <div class="mission-big reveal">Näkymme on, että <em>Itä-Suomi — ja siitä eteenpäin</em> — kuulee evankeliumin.<br/>Evankeliumi on <strong>Jumalan suuri rakkauden suunnitelma.</strong></div>
+      <p class="sec-body reveal d1">Uskomme, että Jumala on hyvä ja että jokaisella ihmisellä on oikeus kuulla se. Siksi menemme. Siksi puhumme. Siksi kutsumme.</p>
+      <div class="gospel-chip reveal d2">✦ Evankeliumi = suuri rakkauden suunnitelma</div>
+    </div>
+    <div class="reveal d2">
+      <div style="position:relative;overflow:hidden;min-height:380px">
+        <img src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Katuolosuhteissa" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERJANTAI EVENT -->
+<div class="event-band">
+  <div class="event-inner">
+    <div>
+      <div class="event-tag reveal">Viikoittain</div>
+      <div class="event-title reveal d1">Evankeliointi<br/>joka perjantai</div>
+      <p class="event-desc reveal d2">Tule rohkeasti mukaan — mennään yhdessä kadulle jakamaan hyviä uutisia Jeesuksesta. Ei kokemusta tarvita. Opit tekemällä.</p>
+      <div class="event-chips reveal d2">
+        <div class="chip">klo 18:00</div>
+        <div class="chip">Otavankatu 18, Mikkeli</div>
+        <div class="chip">Avoin kaikille</div>
+      </div>
+    </div>
+    <div class="reveal d3">
+      <a href="../yhteys/" class="btn-gold" style="display:block;text-align:center;white-space:nowrap">Tule mukaan →</a>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:0.8rem;font-style:italic;font-family:'Cormorant Garamond',serif">Ei kokemusta tarvita</p>
+    </div>
+  </div>
+</div>
+
+<!-- TODISTUKSET -->
+<section id="testimonies">
+  <div class="kicker reveal">Todistuksia kaduilta</div>
+  <h2 class="sec-h2 reveal">Mitä Jumala tekee <em>Mikkelissä tänään.</em></h2>
+  <div class="t-grid" id="t-grid">
+    <div class="t-empty">Ladataan todistuksia…</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-logo">Ilon <em>Virta</em></div>
+      <div class="f-tagline">Koti Jumalan voimalle ja perheelle. Mikkeli.</div>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Toiminta</div>
+      <ul>
+        <li><a href="../sunnuntai/">Sunnuntaikokous</a></li>
+        <li><a href="../lapset/">Lasten toiminta</a></li>
+        <li><a href="../evankeliointi/">Evankeliointi</a></li>
+        <li><a href="../raamattukoulu/">Raamattukoulu</a></li>
+        <li><a href="../tapahtumat/">Tapahtumat</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Media</div>
+      <ul>
+        <li><a href="http://www.youtube.com/@IloinenPodcast" target="_blank" rel="noopener noreferrer">Iloinen Podcast</a></li>
+        <li><a href="http://www.youtube.com/@ilonvirtamikkeli" target="_blank" rel="noopener noreferrer">Pastorin opetukset</a></li>
+        <li><a href="https://www.instagram.com/ilonvirtamikkeli" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Yhteystiedot</div>
+      <ul>
+        <li><a href="https://maps.google.com/?q=Otavankatu+18+Mikkeli" target="_blank" rel="noopener noreferrer">Otavankatu 18, Mikkeli</a></li>
+        <li><a href="tel:+358449361604">+358 44 936 1604</a></li>
+        <li><a href="mailto:info@ilonvirta.fi">info@ilonvirta.fi</a></li>
+        <li><a href="../english/">In English</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2025 Ilon Virta Seurakunta · Mikkeli</div>
+    <div class="f-copy">ilonvirta.fi</div>
+  </div>
+</footer>
+
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import{getDatabase,ref,onValue,query,orderByChild,equalTo}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+const app=initializeApp({apiKey:"AIzaSyAR3nuBBPaDIukSa2XlRUOYhhPuDrnXqTQ",authDomain:"evankeliointi-1b425.firebaseapp.com",databaseURL:"https://evankeliointi-1b425-default-rtdb.europe-west1.firebasedatabase.app",projectId:"evankeliointi-1b425",storageBucket:"evankeliointi-1b425.firebasestorage.app",messagingSenderId:"679330535545",appId:"1:679330535545:web:074c28e2b5338969ba9ca8"});
+const db=getDatabase(app);let shown=0;
+function animateTo(n){const el=document.getElementById('counter');const from=shown;if(from===n)return;if(n>from){el.classList.add('pop');setTimeout(()=>el.classList.remove('pop'),400);}const t0=performance.now();(function step(now){const p=Math.min((now-t0)/1200,1);const e=1-Math.pow(1-p,4);el.textContent=Math.round(from+(n-from)*e);if(p<1)requestAnimationFrame(step);else shown=n;})(t0);}
+onValue(ref(db,'total/count'),s=>animateTo(s.val()||0));
+onValue(query(ref(db,'testimonies'),orderByChild('approved'),equalTo(true)),snap=>{
+  const g=document.getElementById('t-grid');
+  if(!snap.exists()){g.innerHTML='<div class="t-empty">Todistuksia tulossa pian 🕊️</div>';return;}
+  const list=[];snap.forEach(c=>list.push(c.val()));list.sort((a,b)=>b.timestamp-a.timestamp);
+  g.innerHTML=list.map((t,i)=>{const date=new Date(t.timestamp).toLocaleDateString('fi-FI',{day:'numeric',month:'long'});return`<div class="t-card${i===0?' wide':''}"><div class="t-mark">"</div><div class="t-text">${t.text}</div><div class="t-date">${date}</div></div>`;}).join('');
+});
+</script>
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function toggleMenu(){const m=document.getElementById('mob-menu'),b=document.getElementById('ham-btn'),o=m.classList.toggle('open');b.classList.toggle('active',o);b.setAttribute('aria-expanded',o)}
+function closeMenu(){document.getElementById('mob-menu').classList.remove('open');const b=document.getElementById('ham-btn');b.classList.remove('active');b.setAttribute('aria-expanded','false')}
+</script>
+</body>
+</html>
