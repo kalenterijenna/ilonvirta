@@ -97,12 +97,14 @@ section{padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem)}
 .quote-block{border-left:2px solid var(--gold);padding-left:1.4rem;margin-top:1.8rem}
 .quote-block p{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:0.5rem}
 .quote-block cite{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-style:normal}
-.vision-img{position:relative;overflow:hidden;min-height:360px}
+
+/* Kuva — pienempi kuin ennen */
+.vision-img{position:relative;overflow:hidden;min-height:280px;max-height:380px}
 .vision-img img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* AIKATAULU */
 #schedule{background:var(--light-2)}
-.sched-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--border-light);border:1px solid var(--border-light);margin-top:2.5rem}
+.sched-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;background:var(--border-light);border:1px solid var(--border-light);margin-top:2.5rem}
 .sched-cell{background:var(--white);padding:2.4rem 2rem;border-right:1px solid var(--border-light);position:relative;overflow:hidden;transition:background .2s}
 .sched-cell:last-child{border-right:none}
 .sched-cell:hover{background:var(--light-2)}
@@ -112,6 +114,20 @@ section{padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem)}
 .sc-time{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--ink);line-height:1;margin-bottom:0.4rem}
 .sc-desc{font-size:0.83rem;color:var(--muted-ink);line-height:1.7}
 
+/* Jaksopalkit */
+.jakso-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem}
+.jakso-card{background:var(--white);border:1px solid var(--border-light);border-top:3px solid var(--gold);padding:1.8rem 2rem}
+.jakso-label{font-size:0.6rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.jakso-dates{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--ink);margin-bottom:0.4rem}
+.jakso-note{font-size:0.8rem;color:var(--muted-ink);line-height:1.6}
+
+/* Sisältölista */
+.content-list{display:flex;flex-direction:column;gap:0;margin-top:2rem;border:1px solid var(--border-light)}
+.cl-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.4rem;border-bottom:1px solid var(--border-light)}
+.cl-item:last-child{border-bottom:none}
+.cl-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.cl-text{font-size:0.88rem;color:var(--ink)}
+
 /* TAVOITTEET */
 #goals{background:var(--white)}
 .goal-list{display:flex;flex-direction:column;margin-top:2rem}
@@ -119,7 +135,7 @@ section{padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem)}
 .goal-item:last-child{border-bottom:none}
 .goal-ref{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:300;color:var(--gold-dark);min-width:64px;flex-shrink:0;margin-top:3px;font-style:italic}
 .goal-text{font-size:0.9rem;color:var(--ink);line-height:1.8}
-.goal-text strong{color:var(--ink);font-weight:500;display:block;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.25rem;color:var(--muted-ink)}
+.goal-text strong{display:block;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.25rem;color:var(--muted-ink);font-weight:500}
 
 /* KENELLE */
 #whoisit{background:var(--light-2)}
@@ -128,7 +144,7 @@ section{padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem)}
 .who-item:hover{background:var(--light-2)}
 .who-dash{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);flex-shrink:0;line-height:1.4}
 .who-text{font-size:0.9rem;color:var(--muted-ink);line-height:1.75}
-.who-cta{background:var(--dark);color:var(--white)}
+.who-cta{background:var(--dark)}
 .who-cta .who-text a{color:var(--gold);text-decoration:none}
 
 /* HAE */
@@ -177,7 +193,7 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
 @media(max-width:900px){
   .nav-links,.nav-cta{display:none}
   .nav-ham{display:flex}
-  .info-strip,.sched-grid{grid-template-columns:1fr}
+  .info-strip,.sched-grid,.jakso-grid{grid-template-columns:1fr}
   .is-cell,.sched-cell{border-right:none;border-bottom:1px solid var(--border-light)}
   .is-cell:last-child,.sched-cell:last-child{border-bottom:none}
   .two-col,.who-grid,.apply-layout{grid-template-columns:1fr}
@@ -251,13 +267,13 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
   <div class="two-col">
     <div>
       <div class="kicker reveal">Näky</div>
-      <h2 class="sec-h2 reveal">Kasvaa <em>Kristuksen tuntemisessa.</em></h2>
+      <h2 class="sec-h2 reveal">Opetuslapsia, <em>ei vain kuulijoita.</em></h2>
       <div class="rule reveal"></div>
-      <p class="sec-body reveal">Ilon Virta Raamattukoulun näky on kasvattaa uskovia Kristuksen tuntemisessa, tasapainoisessa ja kypsässä uskonelämässä sekä elävässä, henkilökohtaisessa suhteessa Jeesukseen.</p>
-      <p class="sec-body reveal d1" style="margin-top:0.8rem">Haluamme auttaa jokaista opiskelijaa kasvamaan Kristuksessa, vahvistumaan identiteetissään Jumalan lapsena ja löytämään oman kutsunsa tässä ajassa.</p>
+      <p class="sec-body reveal">Raamattukoulu on paikka, jossa mennään syvemmälle. Ei vain tietoa Raamatusta — vaan elävää suhdetta Jeesukseen, selkeyttä omaan identiteettiin Jumalan lapsena ja rohkeutta elää usko todeksi.</p>
+      <p class="sec-body reveal d1" style="margin-top:0.8rem">Haluamme nähdä ihmisiä, jotka tietävät kuka Jumala on, tietävät keitä he ovat Hänelle — ja ovat valmiita menemään.</p>
       <div class="quote-block reveal d2">
-        <p>"Kunnes me kaikki pääsemme ykseyteen uskossa ja Jumalan Pojan tuntemisessa, täydelliseen ihmisyyteen, Kristuksen täyteyden mitan täyttäviksi."</p>
-        <cite>Ef. 4:13</cite>
+        <p>"Menkää siis ja tehkää kaikki kansat minun opetuslapsikseni, kastamalla heitä Isän ja Pojan ja Pyhän Hengen nimeen ja opettamalla heitä pitämään kaikki, mitä minä olen käskenyt teidän pitää. Ja katso, minä olen teidän kanssanne joka päivä maailman loppuun asti."</p>
+        <cite>Matteus 28:19–20</cite>
       </div>
     </div>
     <div class="vision-img reveal d2">
@@ -268,8 +284,10 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
 
 <!-- AIKATAULU -->
 <section id="schedule">
-  <div class="kicker reveal">Aikataulu</div>
-  <h2 class="sec-h2 reveal">Milloin <em>kokoonnumme?</em></h2>
+  <div class="kicker reveal">Syyslukukausi 2026</div>
+  <h2 class="sec-h2 reveal">Aikataulu ja <em>sisältö.</em></h2>
+  <div class="rule reveal"></div>
+
   <div class="sched-grid">
     <div class="sched-cell reveal d1">
       <div class="sc-day">Tiistai</div>
@@ -281,10 +299,28 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
       <div class="sc-time">17:15–20:15</div>
       <div class="sc-desc">Lähiopetus Mikkelissä tai etäyhteys verkossa. Syvennytään viikon teemaan ja käytännön soveltamiseen.</div>
     </div>
-    <div class="sched-cell reveal d3">
-      <div class="sc-day">Sunnuntai</div>
-      <div class="sc-time">Kotiseurakunta</div>
-      <div class="sc-desc">Sunnuntaikokous omassa kotiseurakunnassa. Raamattukoulu tukee seurakuntaelämääsi, ei korvaa sitä.</div>
+  </div>
+
+  <div class="jakso-grid reveal d1">
+    <div class="jakso-card">
+      <div class="jakso-label">Jakso 1</div>
+      <div class="jakso-dates">17.8. – 9.10.2026</div>
+      <div class="jakso-note">8 viikkoa · sisältää syysloman vko 43</div>
+    </div>
+    <div class="jakso-card">
+      <div class="jakso-label">Jakso 2</div>
+      <div class="jakso-dates">27.10. – 17.12.2026</div>
+      <div class="jakso-note">8 viikkoa · viimeinen kerta to 17.12.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem" class="reveal d2">
+    <div class="kicker">Kouluun kuuluu</div>
+    <div class="content-list">
+      <div class="cl-item"><div class="cl-dot"></div><div class="cl-text">Tiistai klo 17:15–20:15 — Raamattuopetus</div></div>
+      <div class="cl-item"><div class="cl-dot"></div><div class="cl-text">Torstai klo 17:15–20:15 — Raamattuopetus</div></div>
+      <div class="cl-item"><div class="cl-dot"></div><div class="cl-text">Evankeliointi viikoittain</div></div>
+      <div class="cl-item"><div class="cl-dot"></div><div class="cl-text">Sunnuntaikokous viikoittain</div></div>
     </div>
   </div>
 </section>
@@ -294,16 +330,16 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
   <div class="two-col">
     <div>
       <div class="kicker reveal">Tavoitteet</div>
-      <h2 class="sec-h2 reveal">Mitä haluamme <em>nähdä sinussa?</em></h2>
+      <h2 class="sec-h2 reveal">Haluamme nähdä, että <em>jokainen opiskelija:</em></h2>
       <div class="rule reveal"></div>
       <p class="sec-body reveal">Nämä tavoitteet pohjautuvat Efeson kirjeen neljänteen lukuun — Paavalin näkyyn kypsästä seurakunnasta.</p>
     </div>
     <div class="goal-list reveal d2">
       <div class="goal-item"><div class="goal-ref">Ef. 4:13</div><div class="goal-text"><strong>Hengellinen kypsyys</strong>Kasvaa kohti Kristuksen täyteyttä — usko vahvistuu ja juurtuu syvälle Jumalan Sanaan.</div></div>
-      <div class="goal-item"><div class="goal-ref">Ef. 4:14</div><div class="goal-text"><strong>Vakaa perusta</strong>Et enää ajelehdita opintuulten mukana — seisot lujasti Raamatun opetuksessa ja Pyhän Hengen johdatuksessa.</div></div>
-      <div class="goal-item"><div class="goal-ref">Ef. 4:15</div><div class="goal-text"><strong>Totuus rakkaudessa</strong>Puhut ja elät todeksi totuutta rakkaudessa, rakentaen ja vahvistaen toinen toistasi.</div></div>
-      <div class="goal-item"><div class="goal-ref">Ef. 4:16</div><div class="goal-text"><strong>Oma paikka ja kutsu</strong>Löydät oman paikkasi, lahjasi ja tehtäväsi seurakunnan yhteiseksi rakennukseksi.</div></div>
-      <div class="goal-item"><div class="goal-ref">Apt. 1:8</div><div class="goal-text"><strong>Evankeliumin julistaminen</strong>Julistat evankeliumia Pyhän Hengen voimassa, Kristuksen todistajana omalla paikkakunnalla.</div></div>
+      <div class="goal-item"><div class="goal-ref">Ef. 4:14</div><div class="goal-text"><strong>Vakaa perusta</strong>Ei enää ajelehdi opintuulten mukana — seisoo lujasti Raamatun opetuksessa ja Pyhän Hengen johdatuksessa.</div></div>
+      <div class="goal-item"><div class="goal-ref">Ef. 4:15</div><div class="goal-text"><strong>Totuus rakkaudessa</strong>Puhuu ja elää todeksi totuutta rakkaudessa, rakentaen ja vahvistaen toinen toistaan.</div></div>
+      <div class="goal-item"><div class="goal-ref">Ef. 4:16</div><div class="goal-text"><strong>Oma paikka ja kutsu</strong>Löytää oman paikkansa, lahjansa ja tehtävänsä seurakunnan yhteiseksi rakennukseksi.</div></div>
+      <div class="goal-item"><div class="goal-ref">Apt. 1:8</div><div class="goal-text"><strong>Evankeliumin julistaminen</strong>Julistaa evankeliumia Pyhän Hengen voimassa, Kristuksen todistajana omalla paikkakunnalla.</div></div>
     </div>
   </div>
 </section>
@@ -321,7 +357,7 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
     <div class="who-item reveal d1"><div class="who-dash">—</div><div class="who-text">Haluat kasvaa Jumalan tuntemisessa — oppia tuntemaan Hänet syvemmin kuin ennen.</div></div>
     <div class="who-item reveal d2"><div class="who-dash">—</div><div class="who-text">Etsit selkeyttä kutsuusi ja paikkaasi — mitä Jumala on kutsunut sinut tekemään?</div></div>
     <div class="who-item reveal d1"><div class="who-dash">—</div><div class="who-text">Haluat oppia elämään uskoasi todeksi käytännössä, ei vain teoriana tai perinteenä.</div></div>
-    <div class="who-item who-cta reveal d2"><div class="who-dash">→</div><div class="who-text">Kuulostaako tutulta? <a href="#apply">Hae mukaan →</a></div></div>
+    <div class="who-item who-cta reveal d2"><div class="who-dash">→</div><div class="who-text" style="color:rgba(255,255,255,0.7)">Kuulostaako tutulta? <a href="#apply" style="color:var(--gold);text-decoration:none">Hae mukaan →</a></div></div>
   </div>
 </section>
 
@@ -336,6 +372,8 @@ footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-
         <div class="aib-row"><span class="aib-lbl">Opetusmuoto</span><span class="aib-val">Lähiopetus tai etä</span></div>
         <div class="aib-row"><span class="aib-lbl">Tiistai</span><span class="aib-val">Klo 17:15–20:15</span></div>
         <div class="aib-row"><span class="aib-lbl">Torstai</span><span class="aib-val">Klo 17:15–20:15</span></div>
+        <div class="aib-row"><span class="aib-lbl">Jakso 1</span><span class="aib-val">19.8. – 9.10.2026</span></div>
+        <div class="aib-row"><span class="aib-lbl">Jakso 2</span><span class="aib-val">27.10. – 17.12.2026</span></div>
         <div class="aib-row"><span class="aib-lbl">Osoite</span><span class="aib-val">Otavankatu 18, Mikkeli</span></div>
         <div class="aib-row"><span class="aib-lbl">Sähköposti</span><span class="aib-val">info@ilonvirta.fi</span></div>
         <div class="aib-row"><span class="aib-lbl">Puhelin</span><span class="aib-val">+358 44 936 1604</span></div>
