@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Ota yhteyttä — Ilon Virta Seurakunta Mikkeli. info@ilonvirta.fi · +358 44 936 1604 · Otavankatu 18."/>
+<meta name="description" content="Ota yhteyttä — Ilon Virta Seurakunta Mikkeli. Tutustu pastoreihin Mika ja Jenna Rinkiseen, lähetä viesti, löydä osoitetiedot ja tilinumero."/>
 <title>Yhteys — Ilon Virta Mikkeli</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -50,322 +50,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 /* HERO */
 .page-hero{margin-top:60px;position:relative;overflow:hidden}
 .ph-img{position:absolute;inset:0;background:url('https://images.pexels.com/photos/1209978/pexels-photo-1209978.jpeg?auto=compress&cs=tinysrgb&w=1400') center 35%/cover no-repeat;animation:subtle-zoom 20s ease-in-out infinite alternate}
-.ph-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,20,20,0.5) 0%,rgba(20,20,20,0.65) 50%,rgba(20,20,20,0.92) 100%)}
-.ph-inner{position:relative;z-index:2;min-height:44vh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);max-width:700px}
+.ph-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,20,20,0.48) 0%,rgba(20,20,20,0.66) 50%,rgba(20,20,20,0.92) 100%)}
+.ph-inner{position:relative;z-index:2;min-height:44vh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);max-width:740px}
 .ph-kicker{font-size:0.62rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;display:flex;align-items:center;gap:10px}
 .ph-kicker::before{content:'';width:24px;height:1px;background:var(--gold);opacity:0.6}
 .ph-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:300;line-height:0.97;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.2rem}
 .ph-h1 em{font-style:italic;color:var(--gold);display:block;margin-top:0.05em}
-.ph-sub{font-size:0.92rem;color:rgba(255,255,255,0.45);max-width:440px;line-height:1.8}
+.ph-sub{font-size:0.92rem;color:rgba(255,255,255,0.55);max-width:500px;line-height:1.8}
 
-/* MAIN LAYOUT */
-#contact{background:var(--white);padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem)}
-.contact-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(3rem,7vw,8rem);align-items:start}
-
-/* CONTACT INFO */
+/* GLOBAL SECTIONS */
 .kicker{font-size:0.62rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.7rem}
 .kicker::after{content:'';height:1px;width:28px;background:var(--gold);opacity:0.5;display:inline-block}
 .sec-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.8vw,3.4rem);font-weight:300;line-height:1.08;letter-spacing:-0.01em;color:var(--ink);margin-bottom:1rem}
 .sec-h2 em{font-style:italic;color:var(--gold)}
 .rule{width:36px;height:1px;background:var(--gold);margin:1.4rem 0;opacity:0.5}
-.contact-intro{font-size:0.92rem;color:var(--muted-ink);line-height:1.85;margin-bottom:2.5rem;max-width:460px}
+.sec-body,.contact-intro{font-size:0.92rem;color:var(--muted-ink);line-height:1.85;margin-bottom:1.3rem;max-width:560px}
 
-.contact-items{display:flex;flex-direction:column;gap:0}
-.ci{display:flex;align-items:flex-start;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid var(--border-light)}
-.ci:last-child{border-bottom:none}
-.ci-ico{width:36px;height:36px;border-radius:50%;background:var(--gold-dim);border:1px solid rgba(212,168,67,0.2);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px}
-.ci-ico svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.ci-lbl{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:0.25rem}
-.ci-val{font-size:0.95rem;font-weight:400;color:var(--ink)}
-.ci-val a{color:var(--ink);text-decoration:none;transition:color .2s}
-.ci-val a:hover{color:var(--gold)}
-
-/* SOME LINKS */
-.some-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:2rem}
-.some-card{background:var(--light-2);border:1px solid var(--border-light);padding:1.2rem 1.4rem;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:border-color .2s,background .2s}
-.some-card:hover{border-color:rgba(212,168,67,0.4);background:var(--white)}
-.some-platform{font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;font-weight:500}
-.some-name{font-size:0.88rem;color:var(--ink);font-weight:400}
-.some-arr{font-size:0.9rem;color:var(--muted-ink)}
-.some-card:hover .some-arr{color:var(--gold)}
-
-/* FORM */
-.contact-form-box{background:var(--dark-3);padding:2.8rem}
-.f-label{display:block;font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem}
-.f-input,.f-textarea,.f-select{width:100%;background:var(--dark-2);border:1px solid var(--border-2);color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.92rem;font-weight:300;padding:0.75rem 1rem;margin-bottom:1.4rem;outline:none;transition:border-color .2s}
-.f-input:focus,.f-textarea:focus,.f-select:focus{border-color:var(--gold)}
-.f-input::placeholder,.f-textarea::placeholder{color:rgba(255,255,255,0.2)}
-.f-select{color:var(--muted-ink)}
-.f-select option{background:var(--dark-2);color:var(--white)}
-.f-textarea{min-height:130px;resize:vertical}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.f-submit{width:100%;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:var(--gold);color:var(--white);border:none;padding:1rem 2rem;cursor:pointer;transition:background .2s}
-.f-submit:hover{background:var(--white);color:var(--ink)}
-.f-ok{display:none;margin-top:1rem;font-size:0.84rem;color:var(--gold);text-align:center;letter-spacing:0.06em}
-.form-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;font-style:italic;color:var(--white);margin-bottom:0.5rem}
-.form-sub{font-size:0.84rem;color:var(--muted);margin-bottom:2rem;line-height:1.75}
-
-/* KARTTA BAND */
-.map-band{background:var(--light-2);border-top:1px solid var(--border-light)}
-.map-inner{display:grid;grid-template-columns:1fr 1fr;min-height:360px}
-.map-content{padding:clamp(3rem,6vw,5rem);display:flex;flex-direction:column;justify-content:center}
-.map-frame{background:var(--dark-3);position:relative;overflow:hidden}
-.map-frame iframe{width:100%;height:100%;border:none;display:block;min-height:360px;filter:grayscale(20%)}
-
-/* PRAYER STRIP */
-.prayer-strip{background:var(--dark);padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem);display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
-.ps-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;color:var(--white)}
-.ps-title em{color:var(--gold);font-style:normal}
-.ps-body{font-size:0.88rem;color:var(--muted);margin-top:0.5rem;max-width:400px;line-height:1.75}
-.btn-gold{display:inline-block;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:var(--gold);color:var(--white);padding:0.85rem 2rem;text-decoration:none;transition:background .2s;flex-shrink:0}
-.btn-gold:hover{background:var(--white);color:var(--ink)}
-
-/* FOOTER */
-footer{background:var(--dark);padding:3.5rem clamp(1.5rem,5vw,5rem) 2rem;border-top:1px solid var(--border)}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
-.f-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);margin-bottom:0.5rem}
-.f-logo em{color:var(--gold);font-style:normal}
-.f-tagline{font-size:0.8rem;color:rgba(255,255,255,0.28);font-weight:300;max-width:200px;line-height:1.7}
-.f-col-h{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;opacity:0.7}
-.f-col ul{list-style:none}
-.f-col ul li{margin-bottom:0.5rem}
-.f-col ul li a{font-size:0.82rem;font-weight:300;color:var(--muted);text-decoration:none;transition:color .2s}
-.f-col ul li a:hover{color:var(--gold)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.8rem;border-top:1px solid var(--border)}
-.f-copy{font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.2)}
-
-@keyframes subtle-zoom{from{transform:scale(1.03)}to{transform:scale(1.0)}}
-
-@media(max-width:900px){
-  .nav-links,.nav-cta{display:none}
-  .nav-ham{display:flex}
-  .contact-layout,.map-inner,.footer-top{grid-template-columns:1fr}
-  .some-grid{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr 1fr}
-  .prayer-strip{flex-direction:column;align-items:flex-start}
-}
-@media(max-width:480px){.footer-top{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-
-<nav>
-  <a href="/ilonvirta/" class="nav-logo">Ilon <em>Virta</em></a>
-  <ul class="nav-links">
-    <li><a href="/ilonvirta/sunnuntai/">Sunnuntai</a></li>
-    <li><a href="/ilonvirta/lapset/">Lapset</a></li>
-    <li><a href="/ilonvirta/evankeliointi/">Evankeliointi</a></li>
-    <li><a href="/ilonvirta/raamattukoulu/">Raamattukoulu</a></li>
-    <li><a href="/ilonvirta/tapahtumat/">Tapahtumat</a></li>
-    <li><a href="/ilonvirta/yhteys/" class="active">Yhteys</a></li>
-    <li><a href="/ilonvirta/english/">In English</a></li>
-  </ul>
-  <a href="/ilonvirta/#welcome" class="nav-cta">Olen uusi →</a>
-  <button class="nav-ham" id="ham-btn" onclick="toggleMenu()" aria-label="Avaa valikko" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="mobile-menu" id="mob-menu">
-  <a href="/ilonvirta/" onclick="closeMenu()">Etusivu</a>
-  <a href="/ilonvirta/sunnuntai/" onclick="closeMenu()">Sunnuntai</a>
-  <a href="/ilonvirta/lapset/" onclick="closeMenu()">Lapset</a>
-  <a href="/ilonvirta/evankeliointi/" onclick="closeMenu()">Evankeliointi</a>
-  <a href="/ilonvirta/raamattukoulu/" onclick="closeMenu()">Raamattukoulu</a>
-  <a href="/ilonvirta/tapahtumat/" onclick="closeMenu()">Tapahtumat</a>
-  <a href="/ilonvirta/yhteys/" onclick="closeMenu()">Yhteys</a>
-  <a href="/ilonvirta/english/" onclick="closeMenu()">In English</a>
-  <a href="/ilonvirta/#welcome" class="mob-cta" onclick="closeMenu()">Olen uusi kävijä →</a>
-</div>
-
-<!-- HERO -->
-<div class="page-hero">
-  <div class="ph-img"></div>
-  <div class="ph-overlay"></div>
-  <div class="ph-inner">
-    <div class="ph-kicker">Ilon Virta · Mikkeli</div>
-    <h1 class="ph-h1">Olemme<em>tavoitettavissa.</em></h1>
-    <p class="ph-sub">Kysy, kerro tai tule käymään. Mikään kysymys ei ole liian pieni tai liian suuri.</p>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-layout">
-    <div>
-      <div class="kicker reveal">Yhteystiedot</div>
-      <h2 class="sec-h2 reveal">Ota <em>yhteyttä.</em></h2>
-      <div class="rule reveal"></div>
-      <p class="contact-intro reveal">Olemme ihmisiä — et puhu koneelle tai organisaatiolle. Tule juttelemaan, kysy vapaasti tai tule käymään ensi sunnuntaina.</p>
-
-      <div class="contact-items reveal d1">
-        <div class="ci">
-          <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-          <div>
-            <div class="ci-lbl">Osoite</div>
-            <div class="ci-val"><a href="https://maps.google.com/?q=Otavankatu+18+Mikkeli" target="_blank" rel="noopener noreferrer">Otavankatu 18, 50130 Mikkeli</a></div>
-          </div>
-        </div>
-        <div class="ci">
-          <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
-          <div>
-            <div class="ci-lbl">Puhelin</div>
-            <div class="ci-val"><a href="tel:+358449361604">+358 44 936 1604</a></div>
-          </div>
-        </div>
-        <div class="ci">
-          <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div>
-            <div class="ci-lbl">Sähköposti</div>
-            <div class="ci-val"><a href="mailto:info@ilonvirta.fi">info@ilonvirta.fi</a></div>
-          </div>
-        </div>
-        <div class="ci">
-          <div class="ci-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-          <div>
-            <div class="ci-lbl">Sunnuntaikokous</div>
-            <div class="ci-val">Joka sunnuntai klo 11:00</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top:2.5rem" class="reveal d2">
-        <div class="kicker" style="margin-bottom:1rem">Seuraa somessa</div>
-        <div class="some-grid">
-          <a href="https://www.instagram.com/ilonvirtamikkeli" class="some-card" target="_blank" rel="noopener noreferrer">
-            <div><div class="some-platform">Instagram</div><div class="some-name">@ilonvirtamikkeli</div></div>
-            <div class="some-arr">→</div>
-          </a>
-          <a href="http://www.youtube.com/@ilonvirtamikkeli" class="some-card" target="_blank" rel="noopener noreferrer">
-            <div><div class="some-platform">YouTube</div><div class="some-name">Pastorin opetukset</div></div>
-            <div class="some-arr">→</div>
-          </a>
-          <a href="http://www.youtube.com/@IloinenPodcast" class="some-card" target="_blank" rel="noopener noreferrer">
-            <div><div class="some-platform">Podcast</div><div class="some-name">Iloinen Podcast</div></div>
-            <div class="some-arr">→</div>
-          </a>
-          <a href="https://www.instagram.com/jennarinkinen" class="some-card" target="_blank" rel="noopener noreferrer">
-            <div><div class="some-platform">Instagram · Pastori</div><div class="some-name">@jennarinkinen</div></div>
-            <div class="some-arr">→</div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-form-box reveal d2">
-      <div class="form-title">Lähetä viesti</div>
-      <p class="form-sub">Vastataan aina — yleensä saman päivän sisällä.</p>
-      <form id="contact-form" novalidate>
-        <div class="f-row">
-          <div><label class="f-label">Etunimi *</label><input class="f-input" type="text" name="etunimi" placeholder="Matti" required autocomplete="given-name"/></div>
-          <div><label class="f-label">Sukunimi</label><input class="f-input" type="text" name="sukunimi" placeholder="Virtanen" autocomplete="family-name"/></div>
-        </div>
-        <label class="f-label">Sähköposti *</label>
-        <input class="f-input" type="email" name="email" placeholder="sinä@esimerkki.fi" required autocomplete="email"/>
-        <label class="f-label">Aihe</label>
-        <select class="f-select" name="aihe">
-          <option value="">Valitse aihe…</option>
-          <option>Olen tulossa ensimmäistä kertaa</option>
-          <option>Kysyn seurakunnasta</option>
-          <option>Raamattukoulu</option>
-          <option>Evankeliointi</option>
-          <option>Rukouspyyntö</option>
-          <option>Jokin muu</option>
-        </select>
-        <label class="f-label">Viestisi *</label>
-        <textarea class="f-textarea" name="viesti" placeholder="Kirjoita vapaasti — mikään kysymys ei ole väärä…" required></textarea>
-        <button type="submit" class="f-submit">Lähetä viesti</button>
-        <div class="f-ok" id="contactOk">✓ Viesti lähetetty — palaamme pian!</div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- KARTTA -->
-<div class="map-band">
-  <div class="map-inner">
-    <div class="map-content">
-      <div class="kicker reveal">Löydät meidät</div>
-      <h2 class="sec-h2 reveal" style="font-size:clamp(1.8rem,3vw,2.6rem)">Otavankatu 18,<em>Mikkeli.</em></h2>
-      <div class="rule reveal"></div>
-      <p class="sec-body reveal">Kokoonnumme joka sunnuntai klo 11. Tule viisitoista minuuttia ennen kokousta — ehdit löytää paikan ja kohdataan ennen kuin alkaa.</p>
-      <div style="margin-top:1.8rem" class="reveal d1">
-        <a href="https://maps.google.com/?q=Otavankatu+18+Mikkeli" target="_blank" rel="noopener noreferrer" style="display:inline-block;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,168,67,0.4);padding-bottom:0.2rem">Avaa Google Mapsissa →</a>
-      </div>
-    </div>
-    <div class="map-frame">
-      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1866.9!2d27.2726!3d61.6875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469072ab88ac9f4d%3A0x1!2sOtavankatu+18%2C+Mikkeli!5e0!3m2!1sfi!2sfi!4v1620000000000"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</div>
-
-<!-- RUKOUS STRIP -->
-<div class="prayer-strip">
-  <div>
-    <div class="ps-title">Voimme <em>rukoilla puolestasi.</em></div>
-    <p class="ps-body">Lähetä rukouspyyntösi — luemme jokaisen ja rukoilemme puolestasi. Luottamuksellisesti.</p>
-  </div>
-  <a href="/ilonvirta/#prayer" class="btn-gold">Lähetä rukouspyyntö →</a>
-</div>
-
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="f-logo">Ilon <em>Virta</em></div>
-      <div class="f-tagline">Koti Jumalan voimalle ja perheelle. Mikkeli.</div>
-    </div>
-    <div class="f-col">
-      <div class="f-col-h">Toiminta</div>
-      <ul>
-        <li><a href="/ilonvirta/sunnuntai/">Sunnuntaikokous</a></li>
-        <li><a href="/ilonvirta/lapset/">Lasten toiminta</a></li>
-        <li><a href="/ilonvirta/evankeliointi/">Evankeliointi</a></li>
-        <li><a href="/ilonvirta/raamattukoulu/">Raamattukoulu</a></li>
-        <li><a href="/ilonvirta/tapahtumat/">Tapahtumat</a></li>
-      </ul>
-    </div>
-    <div class="f-col">
-      <div class="f-col-h">Media</div>
-      <ul>
-        <li><a href="http://www.youtube.com/@IloinenPodcast" target="_blank" rel="noopener noreferrer">Iloinen Podcast</a></li>
-        <li><a href="http://www.youtube.com/@ilonvirtamikkeli" target="_blank" rel="noopener noreferrer">Pastorin opetukset</a></li>
-        <li><a href="https://www.instagram.com/ilonvirtamikkeli" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-      </ul>
-    </div>
-    <div class="f-col">
-      <div class="f-col-h">Yhteystiedot</div>
-      <ul>
-        <li><a href="https://maps.google.com/?q=Otavankatu+18+Mikkeli" target="_blank" rel="noopener noreferrer">Otavankatu 18, Mikkeli</a></li>
-        <li><a href="tel:+358449361604">+358 44 936 1604</a></li>
-        <li><a href="mailto:info@ilonvirta.fi">info@ilonvirta.fi</a></li>
-        <li><a href="/ilonvirta/english/">In English</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="f-copy">© 2025 Ilon Virta Seurakunta · Mikkeli</div>
-    <div class="f-copy">ilonvirta.fi</div>
-  </div>
-</footer>
-
-<script>
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-function toggleMenu(){const m=document.getElementById('mob-menu'),b=document.getElementById('ham-btn'),o=m.classList.toggle('open');b.classList.toggle('active',o);b.setAttribute('aria-expanded',o)}
-function closeMenu(){document.getElementById('mob-menu').classList.remove('open');const b=document.getElementById('ham-btn');b.classList.remove('active');b.setAttribute('aria-expanded','false')}
-document.getElementById('contact-form').addEventListener('submit',async function(e){
-  e.preventDefault();const btn=this.querySelector('.f-submit');
-  btn.disabled=true;btn.textContent='Lähetetään…';
-  const data=new FormData(e.target);
-  data.append('_subject','Yhteydenotto — Ilon Virta ilonvirta.fi');
-  try{
-    const res=await fetch('https://formspree.io/f/xeenobgv',{method:'POST',body:data,headers:{'Accept':'application/json'}});
-    if(res.ok){document.getElementById('contactOk').style.display='block';e.target.reset();btn.textContent='Lähetetty ✓';}
-    else{btn.disabled=false;btn.textContent='Lähetä viesti';alert('Jokin meni pieleen. Kirjoita suoraan: info@ilonvirta.fi');}
-  }catch{btn.disabled=false;btn.textContent='Lähetä viesti';alert('Verkkovirhe. Kirjoita: info@ilonvirta.fi');}
-});
-</script>
-</body>
-</html>
+/* PASTORS */
+.pastors-section{background:var(--light-2);padding:clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,5rem);border-bottom:1px solid var(--border-light)}
+.pastors-grid{display:grid;grid-template-columns:0.95fr 1.15fr;gap:clamp(2.5rem,6vw,7rem);align-items:center}
+.pastors-photo{position:relative;min-height:540px;background:var(--dark-3);overflow:hidden}
+.pastors-photo img{width:100%;height:100%;min-height:540px;object-fit:cover;display:block;filter:saturate(0.96) contrast(1.02)}
+.pastors-photo::after{content:'';position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to top,rgba(20,20,20,.55),rgba(20,20,20,0));pointer-events:none}
+.pastors-nameplate{position:absolute;left:1.5rem;right:1.5rem;bottom:1.5rem;z-index:2;background:rgba(20,20,20,.68);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);padding:1.2rem 1.4rem;color:var(--white)}
+.pastors-nameplate strong{font-family:'Cormorant Garamond',serif;fon
